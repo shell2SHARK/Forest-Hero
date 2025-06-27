@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ouyf2nnqaaoo"]
+
+[ext_resource type="PackedScene" uid="uid://mud0ie4up7nl" path="res://Scenes/Player/Player.tscn" id="1_gvgtf"]
+[ext_resource type="Resource" uid="uid://bsvbqgqqh88x8" path="res://Resources/Player/Knight.tres" id="2_3o7tj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13yu0"]
+size = Vector2(702, 42)
+
+[node name="Forest" type="Node2D"]
+
+[node name="Floor" type="ColorRect" parent="."]
+offset_left = 255.0
+offset_top = 595.0
+offset_right = 955.0
+offset_bottom = 635.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
+position = Vector2(349, 21)
+shape = SubResource("RectangleShape2D_13yu0")
+
+[node name="Player" parent="." instance=ExtResource("1_gvgtf")]
+position = Vector2(568, 232)
+playerResource = ExtResource("2_3o7tj")
