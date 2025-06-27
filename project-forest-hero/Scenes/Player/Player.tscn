@@ -1,0 +1,138 @@
+[gd_scene load_steps=21 format=3 uid="uid://mud0ie4up7nl"]
+
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_k2yv8"]
+[ext_resource type="Texture2D" uid="uid://jvq3nctagi8f" path="res://icon.svg" id="1_wy2q8"]
+[ext_resource type="Texture2D" uid="uid://bk02q011jjdfa" path="res://Sprites/Player/Soldier-Idle.png" id="3_dgt67"]
+[ext_resource type="Texture2D" uid="uid://bdg1x0oi0ddti" path="res://Sprites/Player/Soldier-Walk.png" id="4_7e0ch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pf5m"]
+size = Vector2(40, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i161k"]
+atlas = ExtResource("3_dgt67")
+region = Rect2(40, 39, 20, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44tb6"]
+atlas = ExtResource("3_dgt67")
+region = Rect2(140, 39, 20, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8w2u"]
+atlas = ExtResource("3_dgt67")
+region = Rect2(240, 39, 20, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vtgy"]
+atlas = ExtResource("3_dgt67")
+region = Rect2(340, 39, 20, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4rlr"]
+atlas = ExtResource("3_dgt67")
+region = Rect2(440, 39, 20, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do28v"]
+atlas = ExtResource("3_dgt67")
+region = Rect2(540, 39, 20, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x46hl"]
+atlas = ExtResource("4_7e0ch")
+region = Rect2(40, 38, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfvop"]
+atlas = ExtResource("4_7e0ch")
+region = Rect2(140, 38, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6dxu"]
+atlas = ExtResource("4_7e0ch")
+region = Rect2(240, 38, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8l36"]
+atlas = ExtResource("4_7e0ch")
+region = Rect2(340, 38, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfdgr"]
+atlas = ExtResource("4_7e0ch")
+region = Rect2(440, 38, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kyef"]
+atlas = ExtResource("4_7e0ch")
+region = Rect2(540, 38, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsoi6"]
+atlas = ExtResource("4_7e0ch")
+region = Rect2(640, 38, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcbr6"]
+atlas = ExtResource("4_7e0ch")
+region = Rect2(740, 38, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w166o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i161k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44tb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8w2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vtgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4rlr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do28v")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x46hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfvop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6dxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8l36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfdgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kyef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsoi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcbr6")
+}],
+"loop": true,
+"name": &"Moving",
+"speed": 15.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_k2yv8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_wy2q8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0pf5m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(2.10526, 2.10526)
+sprite_frames = SubResource("SpriteFrames_w166o")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.357322
