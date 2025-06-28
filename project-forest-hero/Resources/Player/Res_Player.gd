@@ -1,5 +1,5 @@
-class_name PlayerStats
 extends Resource
+class_name PlayerStats
 
 @export_group("Movement Values")
 @export var speed : float = 1
