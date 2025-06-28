@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ouyf2nnqaaoo"]
 
 [ext_resource type="PackedScene" uid="uid://mud0ie4up7nl" path="res://Scenes/Player/Player.tscn" id="1_gvgtf"]
-[ext_resource type="Resource" uid="uid://bsvbqgqqh88x8" path="res://Resources/Player/Knight.tres" id="2_3o7tj"]
+[ext_resource type="PackedScene" uid="uid://p1ge4d7wk457" path="res://Scenes/Enemy/Enemy.tscn" id="2_dgguf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13yu0"]
 size = Vector2(702, 42)
@@ -22,4 +22,6 @@ shape = SubResource("RectangleShape2D_13yu0")
 
 [node name="Player" parent="." instance=ExtResource("1_gvgtf")]
 position = Vector2(568, 232)
-playerResource = ExtResource("2_3o7tj")
+
+[node name="Enemy" parent="." instance=ExtResource("2_dgguf")]
+position = Vector2(699, 571)

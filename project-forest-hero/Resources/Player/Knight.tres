@@ -1,8 +1,9 @@
 [gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://bsvbqgqqh88x8"]
 
-[ext_resource type="Script" path="res://Resources/Player/Res_Player.gd" id="1_5b4rl"]
+[ext_resource type="Script" path="res://Resources/Player/res_player.gd" id="1_5b4rl"]
 
 [resource]
 script = ExtResource("1_5b4rl")
 speed = 300.0
 jumpForce = 500.0
+swordValue = 1.0
