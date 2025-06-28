@@ -15,7 +15,8 @@ func _ready() -> void:
 	if initialState:
 		initialState.enter()
 		actualState = initialState
-	
+
+# Seta process e e physics_process aos states de processamento
 func _process(delta: float) -> void:
 	if actualState:
 		actualState.update(delta)

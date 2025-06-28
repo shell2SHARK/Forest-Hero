@@ -1,16 +1,20 @@
 extends State
 class_name PlayerAttack
 
-@onready var playerSpriteSheet := %AnimatedSprite2D # Coleta a folha de animacoes do player
+@onready var player : CharacterBody2D = get_parent().owner
 
 func enter():
-	if not playerSpriteSheet.animation_finished.is_connected(animation_end):
-		playerSpriteSheet.animation_finished.connect(animation_end)
+	# Se ja houver um signal conectado de animation finished, nao chama mais apos trocar de state
+	if not player.playerSpriteSheet.animation_finished.is_connected(animation_end):
+		player.playerSpriteSheet.animation_finished.connect(animation_end)
+		
 	attack()
 
 func attack():
-	playerSpriteSheet.play("Attack")
+	# Chama animacao de ataque
+	player.playerSpriteSheet.play("Attack")
 
 func animation_end():
-	if(playerSpriteSheet.animation == "Attack"):
+	# Acabando a animacao de ataque, volta a se mexer
+	if(player.playerSpriteSheet.animation == "Attack"):
 		changed_state.emit(self, "Movement")

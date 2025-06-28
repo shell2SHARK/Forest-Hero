@@ -1,13 +1,16 @@
-[gd_scene load_steps=31 format=3 uid="uid://mud0ie4up7nl"]
+[gd_scene load_steps=38 format=3 uid="uid://mud0ie4up7nl"]
 
+[ext_resource type="Script" path="res://Scenes/Player/global_player_data.gd" id="1_j3ouu"]
 [ext_resource type="Texture2D" uid="uid://jvq3nctagi8f" path="res://icon.svg" id="1_wy2q8"]
 [ext_resource type="Texture2D" uid="uid://bk02q011jjdfa" path="res://Sprites/Player/Soldier-Idle.png" id="3_dgt67"]
+[ext_resource type="Texture2D" uid="uid://b0sq3bnm0mcal" path="res://Sprites/Player/Soldier-Death.png" id="3_t1fmg"]
 [ext_resource type="Texture2D" uid="uid://lxtwukyudsbe" path="res://Sprites/Player/Soldier-Attack01.png" id="3_uqdgc"]
 [ext_resource type="Texture2D" uid="uid://bdg1x0oi0ddti" path="res://Sprites/Player/Soldier-Walk.png" id="4_7e0ch"]
 [ext_resource type="Script" path="res://Scripts/State Machine/state_machine.gd" id="6_3jg3m"]
 [ext_resource type="Script" path="res://Scenes/Player/moving_state.gd" id="6_4nbm4"]
 [ext_resource type="Resource" uid="uid://bsvbqgqqh88x8" path="res://Resources/Player/Knight.tres" id="7_a6dfi"]
 [ext_resource type="Script" path="res://Scenes/Player/attack_state.gd" id="8_aot4t"]
+[ext_resource type="Script" path="res://Scenes/Player/dead_state.gd" id="10_25pq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pf5m"]
 size = Vector2(40, 46)
@@ -35,6 +38,22 @@ region = Rect2(400, 33, 100, 33)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bugyx"]
 atlas = ExtResource("3_uqdgc")
 region = Rect2(500, 33, 100, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xup6m"]
+atlas = ExtResource("3_t1fmg")
+region = Rect2(0, 40, 100, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fw0q"]
+atlas = ExtResource("3_t1fmg")
+region = Rect2(100, 40, 100, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xscnv"]
+atlas = ExtResource("3_t1fmg")
+region = Rect2(200, 40, 100, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxhst"]
+atlas = ExtResource("3_t1fmg")
+region = Rect2(300, 40, 100, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i161k"]
 atlas = ExtResource("3_dgt67")
@@ -119,6 +138,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xup6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fw0q")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_xscnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxhst")
+}],
+"loop": false,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_i161k")
 }, {
 "duration": 1.0,
@@ -171,6 +207,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_j3ouu")
+playerResource = ExtResource("7_a6dfi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -183,7 +221,9 @@ shape = SubResource("RectangleShape2D_0pf5m")
 unique_name_in_owner = true
 scale = Vector2(2.10526, 2.10526)
 sprite_frames = SubResource("SpriteFrames_w166o")
-animation = &"Idle"
+animation = &"Dead"
+frame = 3
+frame_progress = 1.0
 
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
 script = ExtResource("6_3jg3m")
@@ -191,9 +231,11 @@ initialState = NodePath("Movement")
 
 [node name="Movement" type="Node" parent="State_Machine"]
 script = ExtResource("6_4nbm4")
-playerResource = ExtResource("7_a6dfi")
 
 [node name="Attack" type="Node" parent="State_Machine"]
 script = ExtResource("8_aot4t")
+
+[node name="Dead" type="Node" parent="State_Machine"]
+script = ExtResource("10_25pq3")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="animation_finished"]
