@@ -20,7 +20,7 @@ func physics_update(delta: float):
 	if(Input.is_action_just_pressed("ui_end")):
 		changed_state.emit(self, "Dead")
 
-func move_player(delta) -> void:
+func move_player(_delta) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
 		player.velocity.y = jumpVelocity
@@ -30,6 +30,7 @@ func move_player(delta) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		player.velocity.x = direction * speed
+		player.attack_area.rotation_degrees  = 0 if direction > 0 else 180 # Compara quando a hitbox deve girar
 		player.playerSpriteSheet.play("Moving")
 		player.playerSpriteSheet.flip_h = direction < 0 # Usa direction pra controlar a boleana
 	else:

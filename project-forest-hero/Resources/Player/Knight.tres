@@ -6,3 +6,4 @@
 script = ExtResource("1_5b4rl")
 speed = 300.0
 jumpForce = 500.0
+swordValue = 1.0

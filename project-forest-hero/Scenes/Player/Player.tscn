@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://mud0ie4up7nl"]
+[gd_scene load_steps=39 format=3 uid="uid://mud0ie4up7nl"]
 
 [ext_resource type="Script" path="res://Scenes/Player/global_player_data.gd" id="1_j3ouu"]
 [ext_resource type="Texture2D" uid="uid://jvq3nctagi8f" path="res://icon.svg" id="1_wy2q8"]
@@ -206,6 +206,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_25wye"]
+radius = 6.24766
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_j3ouu")
 playerResource = ExtResource("7_a6dfi")
@@ -221,9 +224,17 @@ shape = SubResource("RectangleShape2D_0pf5m")
 unique_name_in_owner = true
 scale = Vector2(2.10526, 2.10526)
 sprite_frames = SubResource("SpriteFrames_w166o")
-animation = &"Dead"
+animation = &"Attack"
 frame = 3
-frame_progress = 1.0
+
+[node name="Attack_Area" type="Area2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(2.10526, 2.10526)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Area"]
+position = Vector2(18.525, 0)
+shape = SubResource("CircleShape2D_25wye")
+disabled = true
 
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
 script = ExtResource("6_3jg3m")
@@ -237,5 +248,3 @@ script = ExtResource("8_aot4t")
 
 [node name="Dead" type="Node" parent="State_Machine"]
 script = ExtResource("10_25pq3")
-
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="animation_finished"]
