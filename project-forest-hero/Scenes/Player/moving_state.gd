@@ -30,7 +30,7 @@ func move_player(_delta) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		player.velocity.x = direction * speed
-		player.attack_area.rotation_degrees  = 0 if direction > 0 else 180 # Compara quando a hitbox deve girar
+		player.attack_area.rotation_degrees = 0 if direction > 0 else 180 # Compara quando a hitbox deve girar
 		player.playerSpriteSheet.play("Moving")
 		player.playerSpriteSheet.flip_h = direction < 0 # Usa direction pra controlar a boleana
 	else:
