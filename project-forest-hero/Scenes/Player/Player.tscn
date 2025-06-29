@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Scenes/Player/dead_state.gd" id="10_25pq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pf5m"]
-size = Vector2(40, 46)
+size = Vector2(40, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rp2nu"]
 atlas = ExtResource("3_uqdgc")
@@ -210,6 +210,7 @@ animations = [{
 radius = 6.24766
 
 [node name="Player" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
 script = ExtResource("1_j3ouu")
 playerResource = ExtResource("7_a6dfi")
 
@@ -218,14 +219,14 @@ visible = false
 texture = ExtResource("1_wy2q8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_0pf5m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(2.10526, 2.10526)
 sprite_frames = SubResource("SpriteFrames_w166o")
-animation = &"Attack"
-frame = 3
+animation = &"Idle"
 
 [node name="Attack_Area" type="Area2D" parent="."]
 unique_name_in_owner = true
