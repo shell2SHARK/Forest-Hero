@@ -210,6 +210,7 @@ animations = [{
 radius = 6.24766
 
 [node name="Player" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
 script = ExtResource("1_j3ouu")
 playerResource = ExtResource("7_a6dfi")
 

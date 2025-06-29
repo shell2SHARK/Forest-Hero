@@ -18,10 +18,12 @@ config/icon="res://icon.svg"
 [file_customization]
 
 folder_colors={
+"res://Resources/Enemy/": "yellow",
 "res://Resources/Player/": "red",
 "res://Scenes/Enemy/": "yellow",
 "res://Scenes/Player/": "red",
 "res://Scenes/Stage/": "green",
+"res://Sprites/Enemy/": "yellow",
 "res://Sprites/Player/": "red"
 }
 

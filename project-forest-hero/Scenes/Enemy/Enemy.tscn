@@ -68,6 +68,11 @@ region = Rect2(700, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vj8a0"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tgwli")
@@ -122,6 +127,7 @@ animations = [{
 }]
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 2
 script = ExtResource("1_tsotg")
 enemyResource = ExtResource("2_8m6ru")
 
@@ -133,8 +139,7 @@ shape = SubResource("RectangleShape2D_icbuc")
 unique_name_in_owner = true
 scale = Vector2(2.54, 2.54)
 sprite_frames = SubResource("SpriteFrames_vj8a0")
-animation = &"Idle"
-frame_progress = 0.124997
+animation = &"Attack"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 unique_name_in_owner = true
