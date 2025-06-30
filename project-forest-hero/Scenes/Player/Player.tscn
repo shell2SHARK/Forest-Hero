@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://mud0ie4up7nl"]
+[gd_scene load_steps=46 format=3 uid="uid://mud0ie4up7nl"]
 
 [ext_resource type="Script" path="res://Scenes/Player/global_player_data.gd" id="1_j3ouu"]
 [ext_resource type="Texture2D" uid="uid://jvq3nctagi8f" path="res://icon.svg" id="1_wy2q8"]
@@ -9,8 +9,10 @@
 [ext_resource type="Script" path="res://Scripts/State Machine/state_machine.gd" id="6_3jg3m"]
 [ext_resource type="Script" path="res://Scenes/Player/moving_state.gd" id="6_4nbm4"]
 [ext_resource type="Resource" uid="uid://bsvbqgqqh88x8" path="res://Resources/Player/Knight.tres" id="7_a6dfi"]
+[ext_resource type="Texture2D" uid="uid://cl33g8riln3gg" path="res://Sprites/Player/Soldier-Hurt.png" id="7_d5hi6"]
 [ext_resource type="Script" path="res://Scenes/Player/attack_state.gd" id="8_aot4t"]
 [ext_resource type="Script" path="res://Scenes/Player/dead_state.gd" id="10_25pq3"]
+[ext_resource type="Script" path="res://Scenes/Player/knockback_state.gd" id="13_jqmgg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pf5m"]
 size = Vector2(40, 42)
@@ -78,6 +80,22 @@ region = Rect2(440, 39, 20, 19)
 [sub_resource type="AtlasTexture" id="AtlasTexture_do28v"]
 atlas = ExtResource("3_dgt67")
 region = Rect2(540, 39, 20, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4suq"]
+atlas = ExtResource("7_d5hi6")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhfao"]
+atlas = ExtResource("7_d5hi6")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e6cv"]
+atlas = ExtResource("7_d5hi6")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxihu"]
+atlas = ExtResource("7_d5hi6")
+region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x46hl"]
 atlas = ExtResource("4_7e0ch")
@@ -178,6 +196,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_t4suq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhfao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e6cv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxihu")
+}],
+"loop": true,
+"name": &"Knockback",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_x46hl")
 }, {
 "duration": 1.0,
@@ -222,6 +257,7 @@ visible = false
 texture = ExtResource("1_wy2q8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_0pf5m")
 
@@ -229,7 +265,8 @@ shape = SubResource("RectangleShape2D_0pf5m")
 unique_name_in_owner = true
 scale = Vector2(2.10526, 2.10526)
 sprite_frames = SubResource("SpriteFrames_w166o")
-animation = &"Idle"
+animation = &"Knockback"
+frame_progress = 0.95549
 
 [node name="Attack_Area" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -239,6 +276,12 @@ scale = Vector2(2.10526, 2.10526)
 position = Vector2(18.525, 0)
 shape = SubResource("CircleShape2D_25wye")
 disabled = true
+
+[node name="Get_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Get_Area"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_s8ih4")
 
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
 script = ExtResource("6_3jg3m")
@@ -253,10 +296,7 @@ script = ExtResource("8_aot4t")
 [node name="Dead" type="Node" parent="State_Machine"]
 script = ExtResource("10_25pq3")
 
-[node name="Get_Area" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Get_Area"]
-position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_s8ih4")
+[node name="Knockback" type="Node" parent="State_Machine"]
+script = ExtResource("13_jqmgg")
 
 [connection signal="area_entered" from="Get_Area" to="." method="_on_get_area_area_entered"]

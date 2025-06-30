@@ -25,6 +25,7 @@ func move(delta):
 	enemy.gravity(delta)
 	enemy.enemySpriteSheet.play("Walk")
 	enemy.velocity.x = speedPatrol * direction
+	enemy.attack_area.rotation_degrees = 0 if direction > 0 else 180 # Compara quando a hitbox deve girar
 	enemy.move_and_slide()
 
 func check_to_flip():

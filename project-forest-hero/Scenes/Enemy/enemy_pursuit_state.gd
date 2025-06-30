@@ -19,6 +19,7 @@ func pursuit():
 	direction = 1 if enemy.player.position.x > enemy.position.x else -1
 	enemy.lookArea.get_child(0).rotation_degrees = 0 if direction > 0 else 180
 	enemy.enemySpriteSheet.flip_h = enemy.player.position.x < enemy.position.x
+	enemy.attack_area.rotation_degrees = 0 if direction > 0 else 180 # Compara quando a hitbox deve girar
 	enemy.enemySpriteSheet.play("Walk")
 	enemy.velocity.x = speedPursuit * direction
 	enemy.move_and_slide()

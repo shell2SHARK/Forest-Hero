@@ -13,7 +13,8 @@ func enter():
 		
 	attack()
 
-func update(_delta: float):
+func update(delta: float):
+	player.gravity(delta)
 	# Se a animacao estiver no frame certo, ativa o colisor
 	if(player.playerSpriteSheet.frame >= 3):
 		player.attack_area.get_child(0).disabled = false

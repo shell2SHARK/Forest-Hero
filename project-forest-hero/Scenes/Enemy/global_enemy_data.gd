@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var lookArea : Area2D = %Looking_Area
 @onready var alertIcon : Sprite2D = %Alert
 @onready var collisionBox : CollisionShape2D = %CollisionShape2D
+@onready var attack_area : Area2D = %Attack_Area
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @export var enemyResource : EnemyData
 @onready var life : float = enemyResource.life

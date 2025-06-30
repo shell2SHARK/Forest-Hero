@@ -11,6 +11,7 @@ func enter():
 	jumpVelocity = -player.playerResource.jumpForce
 
 func physics_update(delta: float):
+	player.gravity(delta)
 	move_player(delta)
 	
 	# So ataca se estiver no chao

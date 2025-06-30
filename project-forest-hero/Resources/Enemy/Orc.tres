@@ -6,11 +6,12 @@
 
 [resource]
 script = ExtResource("1_gmglg")
-life = 1
+life = 3
 speedPatrol = 50.0
 speedPursuit = 70.0
 distanceToAttack = 45.0
 timeToWaitUntilPursuit = 1.0
+axeValue = 1.0
 durationKnockback = 1.0
 forceKnockback = 1000.0
 deadEffect = ExtResource("1_m5fde")

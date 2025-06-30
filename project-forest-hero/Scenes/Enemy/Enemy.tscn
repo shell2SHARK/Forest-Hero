@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://p1ge4d7wk457"]
+[gd_scene load_steps=47 format=3 uid="uid://p1ge4d7wk457"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/global_enemy_data.gd" id="1_tsotg"]
 [ext_resource type="Texture2D" uid="uid://wbeyxrt5kr7k" path="res://Sprites/Enemy/Orc-Idle.png" id="2_6rp74"]
@@ -243,6 +243,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nr1qg"]
+radius = 13.6015
+
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_tsotg")
 enemyResource = ExtResource("2_8m6ru")
@@ -261,8 +264,8 @@ position = Vector2(0, -43)
 unique_name_in_owner = true
 scale = Vector2(2.54, 2.54)
 sprite_frames = SubResource("SpriteFrames_vj8a0")
-animation = &"Dead"
-frame = 3
+animation = &"Attack"
+frame = 5
 frame_progress = 1.0
 
 [node name="RayCast_Floor" type="RayCast2D" parent="."]
@@ -281,6 +284,14 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(-2, -10)
 polygon = PackedVector2Array(0, -1, 115, -20, 115, 16, 0, 6)
+
+[node name="Attack_Area" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Area"]
+position = Vector2(46, 0)
+shape = SubResource("CircleShape2D_nr1qg")
+disabled = true
 
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
 script = ExtResource("4_dl5es")

@@ -6,6 +6,7 @@ class_name EnemyDead
 func enter():
 	enemy.enemySpriteSheet.play("Dead")
 	enemy.collisionBox.set_deferred("disabled", true)
+	enemy.attack_area.get_child(0).disabled = true
 	await get_tree().create_timer(2).timeout
 	var deadFx = enemy.enemyResource.deadEffect.instantiate()
 	deadFx.position = enemy.position
