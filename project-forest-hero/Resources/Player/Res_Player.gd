@@ -1,5 +1,5 @@
 extends Resource
-class_name PlayerStats
+class_name PlayerData
 
 @export_group("Movement Values")
 @export_range(1,1000) var speed : float = 1

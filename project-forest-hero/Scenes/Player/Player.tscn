@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://mud0ie4up7nl"]
+[gd_scene load_steps=40 format=3 uid="uid://mud0ie4up7nl"]
 
 [ext_resource type="Script" path="res://Scenes/Player/global_player_data.gd" id="1_j3ouu"]
 [ext_resource type="Texture2D" uid="uid://jvq3nctagi8f" path="res://icon.svg" id="1_wy2q8"]
@@ -209,6 +209,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_25wye"]
 radius = 6.24766
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8ih4"]
+size = Vector2(36, 38)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 platform_floor_layers = 4294901760
 script = ExtResource("1_j3ouu")
@@ -249,3 +252,11 @@ script = ExtResource("8_aot4t")
 
 [node name="Dead" type="Node" parent="State_Machine"]
 script = ExtResource("10_25pq3")
+
+[node name="Get_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Get_Area"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_s8ih4")
+
+[connection signal="area_entered" from="Get_Area" to="." method="_on_get_area_area_entered"]
