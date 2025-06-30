@@ -25,6 +25,6 @@ func pursuit():
 	
 	# Se chegar ate uma distancia perto do jogador,ataca
 	var distanceToPlayer = enemy.global_position.distance_to(enemy.player.global_position)
-	print("seguindo = " , distanceToPlayer)
+	#print("seguindo = " , distanceToPlayer)
 	if(distanceToPlayer <= distanceToStop):
 		changed_state.emit(self, "Attack")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://p1ge4d7wk457"]
+[gd_scene load_steps=40 format=3 uid="uid://p1ge4d7wk457"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/global_enemy_data.gd" id="1_tsotg"]
 [ext_resource type="Texture2D" uid="uid://wbeyxrt5kr7k" path="res://Sprites/Enemy/Orc-Idle.png" id="2_6rp74"]
@@ -7,10 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://dv0syp65j65hj" path="res://Sprites/Enemy/Orc-Walk.png" id="3_dmyxn"]
 [ext_resource type="Script" path="res://Scripts/State Machine/state_machine.gd" id="4_dl5es"]
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy_moving_state.gd" id="5_tho1v"]
+[ext_resource type="Texture2D" uid="uid://dj5hfjejqepef" path="res://Sprites/Enemy/Orc-Hurt.png" id="6_4xla4"]
 [ext_resource type="PackedScene" uid="uid://bysvyomnwrtgv" path="res://Scenes/Enemy/Alert.tscn" id="6_o33uq"]
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy_attack_state.gd" id="8_7issm"]
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy_pursuit_state.gd" id="9_dba5m"]
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy_saw_player_state.gd" id="10_apcr3"]
+[ext_resource type="Script" path="res://Scenes/Enemy/enemy_knockback_state.gd" id="13_6uhks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icbuc"]
 size = Vector2(44, 44)
@@ -62,6 +64,22 @@ region = Rect2(400, 0, 100, 100)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5tu52"]
 atlas = ExtResource("2_6rp74")
 region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6bqi"]
+atlas = ExtResource("6_4xla4")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni56v"]
+atlas = ExtResource("6_4xla4")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x0jt"]
+atlas = ExtResource("6_4xla4")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mvhe"]
+atlas = ExtResource("6_4xla4")
+region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_72ogs"]
 atlas = ExtResource("3_dmyxn")
@@ -145,6 +163,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_i6bqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni56v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x0jt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mvhe")
+}],
+"loop": true,
+"name": &"Knockback",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_72ogs")
 }, {
 "duration": 1.0,
@@ -190,7 +225,8 @@ position = Vector2(0, -43)
 unique_name_in_owner = true
 scale = Vector2(2.54, 2.54)
 sprite_frames = SubResource("SpriteFrames_vj8a0")
-animation = &"Attack"
+animation = &"Knockback"
+frame_progress = 0.0953552
 
 [node name="RayCast_Floor" type="RayCast2D" parent="."]
 unique_name_in_owner = true
@@ -224,3 +260,6 @@ script = ExtResource("9_dba5m")
 
 [node name="Idle_To_Pursuit" type="Node" parent="State_Machine"]
 script = ExtResource("10_apcr3")
+
+[node name="Knockback" type="Node" parent="State_Machine"]
+script = ExtResource("13_6uhks")

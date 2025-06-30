@@ -26,7 +26,6 @@ func move(delta):
 	enemy.enemySpriteSheet.play("Walk")
 	enemy.velocity.x = speedPatrol * direction
 	enemy.move_and_slide()
-	print(direction)
 
 func check_to_flip():
 	# Ele flipa ao nao ter mais chao ou tocando em outro inimigo

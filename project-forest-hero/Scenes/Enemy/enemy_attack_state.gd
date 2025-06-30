@@ -10,12 +10,6 @@ func enter():
 		enemy.enemySpriteSheet.animation_finished.connect(animation_end)
 	
 	enemy.enemyResource.distanceToAttack
-
-func update(_delta: float):
-	attack()
-
-func attack():
-	# Se for true, chama o ataque
 	enemy.enemySpriteSheet.play("Attack")
 
 func animation_end():
@@ -24,3 +18,5 @@ func animation_end():
 		var distanceToPlayer = enemy.global_position.distance_to(enemy.player.global_position)
 		if(distanceToPlayer > distanceToAttack):
 			changed_state.emit(self, "Pursuit")
+		else:
+			enemy.enemySpriteSheet.play("Attack")

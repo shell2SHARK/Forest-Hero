@@ -16,11 +16,12 @@ func gravity(delta):
 		velocity += get_gravity() * delta
 
 func set_damage(value: float):
-	life -= value
-	print("perde vida " , life)
+	#life -= value
+	#print("perde vida " , life)
 	
 	# Chama o estado de combate imediatamente
-	$State_Machine.set_new_state($State_Machine/Movement, "Pursuit")
+	print("actual state = ", $State_Machine.actualState)
+	$State_Machine.set_new_state($State_Machine.actualState, "Knockback")
 	
 	if(life <= 0):
 		queue_free()
