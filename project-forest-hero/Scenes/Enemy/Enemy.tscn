@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://p1ge4d7wk457"]
+[gd_scene load_steps=46 format=3 uid="uid://p1ge4d7wk457"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/global_enemy_data.gd" id="1_tsotg"]
 [ext_resource type="Texture2D" uid="uid://wbeyxrt5kr7k" path="res://Sprites/Enemy/Orc-Idle.png" id="2_6rp74"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dn65d0vihxhk4" path="res://Sprites/Enemy/Orc-Attack02.png" id="3_amgkb"]
 [ext_resource type="Texture2D" uid="uid://dv0syp65j65hj" path="res://Sprites/Enemy/Orc-Walk.png" id="3_dmyxn"]
 [ext_resource type="Script" path="res://Scripts/State Machine/state_machine.gd" id="4_dl5es"]
+[ext_resource type="Texture2D" uid="uid://cv2iqxkbxb0wx" path="res://Sprites/Enemy/Orc-Death.png" id="5_c13jn"]
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy_moving_state.gd" id="5_tho1v"]
 [ext_resource type="Texture2D" uid="uid://dj5hfjejqepef" path="res://Sprites/Enemy/Orc-Hurt.png" id="6_4xla4"]
 [ext_resource type="PackedScene" uid="uid://bysvyomnwrtgv" path="res://Scenes/Enemy/Alert.tscn" id="6_o33uq"]
@@ -13,6 +14,7 @@
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy_pursuit_state.gd" id="9_dba5m"]
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy_saw_player_state.gd" id="10_apcr3"]
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy_knockback_state.gd" id="13_6uhks"]
+[ext_resource type="Script" path="res://Scenes/Enemy/enemy_dead_state.gd" id="15_e22y7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icbuc"]
 size = Vector2(44, 44)
@@ -40,6 +42,22 @@ region = Rect2(400, 0, 100, 100)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4plkd"]
 atlas = ExtResource("3_amgkb")
 region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qlv1"]
+atlas = ExtResource("5_c13jn")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spl2q"]
+atlas = ExtResource("5_c13jn")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rdmo"]
+atlas = ExtResource("5_c13jn")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrr1"]
+atlas = ExtResource("5_c13jn")
+region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgwli"]
 atlas = ExtResource("2_6rp74")
@@ -140,6 +158,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_6qlv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spl2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rdmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrr1")
+}],
+"loop": false,
+"name": &"Dead",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tgwli")
 }, {
 "duration": 1.0,
@@ -213,6 +248,7 @@ script = ExtResource("1_tsotg")
 enemyResource = ExtResource("2_8m6ru")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_icbuc")
 
@@ -225,8 +261,9 @@ position = Vector2(0, -43)
 unique_name_in_owner = true
 scale = Vector2(2.54, 2.54)
 sprite_frames = SubResource("SpriteFrames_vj8a0")
-animation = &"Knockback"
-frame_progress = 0.0953552
+animation = &"Dead"
+frame = 3
+frame_progress = 1.0
 
 [node name="RayCast_Floor" type="RayCast2D" parent="."]
 unique_name_in_owner = true
@@ -263,3 +300,6 @@ script = ExtResource("10_apcr3")
 
 [node name="Knockback" type="Node" parent="State_Machine"]
 script = ExtResource("13_6uhks")
+
+[node name="Dead" type="Node" parent="State_Machine"]
+script = ExtResource("15_e22y7")

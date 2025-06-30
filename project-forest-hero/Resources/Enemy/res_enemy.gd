@@ -2,6 +2,7 @@ extends Resource
 class_name EnemyStats
 
 @export_group("Movement Values")
+@export var life : int = 1
 @export_range(1,1000) var speedPatrol : float = 1
 @export_range(1,1000) var speedPursuit : float = 1
 

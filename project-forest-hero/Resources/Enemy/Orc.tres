@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_gmglg")
+life = 3
 speedPatrol = 50.0
 speedPursuit = 70.0
 distanceToAttack = 45.0

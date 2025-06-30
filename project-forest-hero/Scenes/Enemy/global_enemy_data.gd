@@ -5,9 +5,10 @@ extends CharacterBody2D
 @onready var raycastVision: RayCast2D = %RayCast_Vision
 @onready var lookArea : Area2D = %Looking_Area
 @onready var alertIcon : Sprite2D = %Alert
+@onready var collisionBox : CollisionShape2D = %CollisionShape2D
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @export var enemyResource : EnemyStats
-var life : float = 2
+@onready var life : float = enemyResource.life
 
 # Funcoes globais
 func gravity(delta):
@@ -16,12 +17,12 @@ func gravity(delta):
 		velocity += get_gravity() * delta
 
 func set_damage(value: float):
-	#life -= value
+	life -= value
 	#print("perde vida " , life)
 	
-	# Chama o estado de combate imediatamente
-	print("actual state = ", $State_Machine.actualState)
-	$State_Machine.set_new_state($State_Machine.actualState, "Knockback")
-	
 	if(life <= 0):
-		queue_free()
+		# Chama o estado de dead imediatamente
+		$State_Machine.set_new_state($State_Machine.actualState, "Dead")
+	else:
+		# Chama o estado de knockback imediatamente
+		$State_Machine.set_new_state($State_Machine.actualState, "Knockback")

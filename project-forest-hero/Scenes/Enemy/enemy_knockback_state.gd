@@ -2,7 +2,6 @@ extends State
 class_name EnemyKnockback
 
 @onready var enemy : CharacterBody2D = get_parent().owner
-
 var duration : float = 0
 var force : float = 0
 var knockbackDirection := Vector2.ZERO
@@ -15,6 +14,7 @@ func enter():
 	knockbackDirection = (enemy.global_position - enemy.player.global_position).normalized()
 	knockbackVelocity = knockbackDirection * force
 	enemy.enemySpriteSheet.play("Knockback")
+	enemy.collisionBox.set_deferred("disabled", true)
 
 func physics_update(delta: float):
 	take_knockback(delta)
@@ -25,5 +25,6 @@ func take_knockback(delta):
 		knockbackVelocity = lerp(knockbackVelocity, Vector2.ZERO, knockbackDamping * delta)
 		duration -= delta
 	else:
+		enemy.collisionBox.set_deferred("disabled", false)
 		changed_state.emit(self, "Pursuit")
 	enemy.move_and_slide()
