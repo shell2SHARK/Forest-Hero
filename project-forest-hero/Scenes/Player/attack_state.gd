@@ -5,10 +5,10 @@ class_name PlayerAttack
 
 func enter():
 	# Se ja houver um signal conectado de animation finished, nao chama mais apos trocar de state
-	if not player.playerSpriteSheet.animation_finished.is_connected(animation_end):
+	if not(player.playerSpriteSheet.animation_finished.is_connected(animation_end)):
 		player.playerSpriteSheet.animation_finished.connect(animation_end)
 	
-	if not player.attack_area.body_entered.is_connected(deal_enemy_damage):
+	if not(player.attack_area.body_entered.is_connected(deal_enemy_damage)):
 		player.attack_area.body_entered.connect(deal_enemy_damage)
 		
 	attack()

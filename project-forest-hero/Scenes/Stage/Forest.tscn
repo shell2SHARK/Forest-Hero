@@ -27,4 +27,4 @@ position = Vector2(568, 232)
 position = Vector2(699, 571)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_dgguf")]
-position = Vector2(627, 571)
+position = Vector2(358, 571)

@@ -209,7 +209,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_25wye"]
 radius = 6.24766
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 platform_floor_layers = 4294901760
 script = ExtResource("1_j3ouu")
 playerResource = ExtResource("7_a6dfi")
