@@ -12,6 +12,8 @@ func _ready() -> void:
 			child.changed_state.connect(set_new_state)
 	
 	# Se existe um initial state, chama ele
+	# Aguarda milisegundos para dar tempo do Godot guardar as referencias de nodes no script root
+	await get_tree().create_timer(0.1).timeout
 	if initialState:
 		initialState.enter()
 		actualState = initialState
@@ -27,7 +29,7 @@ func _physics_process(delta: float) -> void:
 
 func set_new_state(state, new_state):
 	# Se o state for diferente do atual
-	if state != actualState: 
+	if state != actualState:
 		return
 	
 	# Coleta o novo state

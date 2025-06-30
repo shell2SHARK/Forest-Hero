@@ -6,8 +6,9 @@ class_name PlayerDead
 func enter():
 	# Chama animacao de morte
 	player.playerSpriteSheet.play("Dead")
+	player.collisionBox.set_deferred("disabled", true)
 
-func update(_delta: float):
+func physics_update(_delta: float):
 	# Zera os valores de movimento do jogador
 	player.velocity.x = 0
 	player.move_and_slide()
