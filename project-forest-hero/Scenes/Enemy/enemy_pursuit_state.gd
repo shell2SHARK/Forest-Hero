@@ -7,13 +7,17 @@ var distanceToStop := 1.0
 var direction := 1
 
 func enter():
-	enemy.alertIcon.visible = false # Desativa o alerta do inimigo
-	speedPursuit = enemy.enemyResource.speedPursuit
-	distanceToStop = enemy.enemyResource.distanceToAttack
+	set_pursuit()
 
 func physics_update(delta: float):
 	enemy.gravity(delta)
 	pursuit()
+
+func set_pursuit():
+	enemy.alertIcon.visible = false # Desativa o alerta do inimigo
+	enemy.lifeBar.visible = true
+	speedPursuit = enemy.enemyResource.speedPursuit
+	distanceToStop = enemy.enemyResource.distanceToAttack
 
 func pursuit():
 	# Segue o jogador
