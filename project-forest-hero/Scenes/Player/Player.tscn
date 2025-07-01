@@ -248,6 +248,7 @@ radius = 6.24766
 size = Vector2(36, 38)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
 platform_floor_layers = 4294901760
 script = ExtResource("1_j3ouu")
 playerResource = ExtResource("7_a6dfi")
@@ -271,6 +272,8 @@ frame_progress = 0.95549
 [node name="Attack_Area" type="Area2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(2.10526, 2.10526)
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Area"]
 position = Vector2(18.525, 0)
