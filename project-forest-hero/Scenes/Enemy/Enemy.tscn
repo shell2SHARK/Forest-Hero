@@ -267,6 +267,7 @@ sprite_frames = SubResource("SpriteFrames_vj8a0")
 animation = &"Attack"
 frame = 5
 frame_progress = 1.0
+metadata/_edit_lock_ = true
 
 [node name="RayCast_Floor" type="RayCast2D" parent="."]
 unique_name_in_owner = true
@@ -292,6 +293,19 @@ unique_name_in_owner = true
 position = Vector2(46, 0)
 shape = SubResource("CircleShape2D_nr1qg")
 disabled = true
+
+[node name="Life" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0, 0.979291, 0.303829, 1)
+offset_left = -24.0
+offset_top = -38.0
+offset_right = 23.0
+offset_bottom = -29.0
+max_value = 3.0
+step = 1.0
+value = 3.0
+show_percentage = false
 
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
 script = ExtResource("4_dl5es")

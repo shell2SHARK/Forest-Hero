@@ -5,11 +5,14 @@ class_name EnemyIdleToPursuit
 var timeToWait := 1
 
 func enter():
-	timeToWait = enemy.enemyResource.timeToWaitUntilPursuit
-	enemy.alertIcon.visible = true
+	wake_to_player()
 
 func update(_delta: float):
 	idle_to_go(timeToWait)
+
+func wake_to_player():
+	timeToWait = enemy.enemyResource.timeToWaitUntilPursuit
+	enemy.alertIcon.visible = true
 
 func idle_to_go(value):
 	# Fica parado e olhado para o jogador ate dar tempo de segui-lo

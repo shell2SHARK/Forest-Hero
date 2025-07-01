@@ -9,16 +9,20 @@ var knockbackVelocity := Vector2.ZERO
 var knockbackDamping := 10.0  # suavização
 
 func enter():
+	set_knockback()
+
+func physics_update(delta: float):
+	enemy.gravity(delta)
+	take_knockback(delta)
+
+func set_knockback():
 	duration = enemy.enemyResource.durationKnockback
 	force = enemy.enemyResource.forceKnockback
 	knockbackDirection = (enemy.global_position - enemy.player.global_position).normalized()
 	knockbackVelocity = knockbackDirection * force
 	enemy.enemySpriteSheet.play("Knockback")
 	enemy.collisionBox.set_deferred("disabled", true)
-
-func physics_update(delta: float):
-	enemy.gravity(delta)
-	take_knockback(delta)
+	enemy.lifeBar.visible = true
 
 func take_knockback(delta):
 	if(duration > 0):

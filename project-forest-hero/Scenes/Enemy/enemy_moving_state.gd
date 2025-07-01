@@ -7,20 +7,21 @@ var direction : int = 1
 var waitToCheck : bool = false
 
 func enter():
-	# Conecta o signal do area look 2d para entrar em idle to pursuit
-	if not(enemy.lookArea.body_entered.is_connected(saw_player)):
-		enemy.lookArea.body_entered.connect(saw_player)
-	
-	speedPatrol = enemy.enemyResource.speedPatrol
+	connect_signals()
 	get_initial_dir()
+	speedPatrol = enemy.enemyResource.speedPatrol
 
 func physics_update(delta: float):
 	move(delta)
-	
 	# Usa essa bool para dar tempo do inimigo voltar e o raycast detectar o chao novamente
 	if(!waitToCheck):
 		check_to_flip()
 	
+func connect_signals():
+	# Conecta o signal do area look 2d para entrar em idle to pursuit
+	if not(enemy.lookArea.body_entered.is_connected(saw_player)):
+		enemy.lookArea.body_entered.connect(saw_player)
+
 func move(delta):
 	enemy.gravity(delta)
 	enemy.enemySpriteSheet.play("Walk")

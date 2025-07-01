@@ -5,17 +5,22 @@ class_name EnemyAttack
 var distanceToAttack := 1.0
 
 func enter():
+	connect_signals()
+	enemy.enemySpriteSheet.play("Attack")
+
+func update(_delta: float):
+	check_frames_to_hitbox()
+
+func connect_signals():
 	# Conecta o signal animation finished do sprite animation
 	if not(enemy.enemySpriteSheet.animation_finished.is_connected(animation_end)):
 		enemy.enemySpriteSheet.animation_finished.connect(animation_end)
 	
 	if not(enemy.attack_area.body_entered.is_connected(deal_player_damage)):
 		enemy.attack_area.body_entered.connect(deal_player_damage)
-	
-	enemy.enemySpriteSheet.play("Attack")
 
-func update(_delta: float):
-	# Se a animacao estiver no frame certo, ativa o colisor
+func check_frames_to_hitbox():
+	# Se a animacao estiver no frame certo, ativa o colisor ou desabilita
 	if(enemy.enemySpriteSheet.frame >= 3):
 		enemy.attack_area.get_child(0).disabled = false
 	if(enemy.enemySpriteSheet.frame >= 5):
