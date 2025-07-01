@@ -1,8 +1,13 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://cktfv0tn64ua0"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=9 format=3 uid="uid://cktfv0tn64ua0"]
 
 [ext_resource type="PackedScene" uid="uid://df0kcnypqu2x7" path="res://Scenes/Heal/Heal.tscn" id="1_bycto"]
 [ext_resource type="Script" path="res://Resources/Enemy/res_enemy.gd" id="1_gmglg"]
 [ext_resource type="PackedScene" uid="uid://754oghd5ijln" path="res://Scenes/Smoke/Smoke.tscn" id="1_m5fde"]
+[ext_resource type="AudioStream" uid="uid://4qxafbi08u2j" path="res://SFXs/Enemy/Enemy Alert.wav" id="1_t24an"]
+[ext_resource type="AudioStream" uid="uid://q652n87yyq5o" path="res://SFXs/Enemy/Enemy Attack.wav" id="2_uk02n"]
+[ext_resource type="AudioStream" uid="uid://d28xrmrvbx2fm" path="res://SFXs/Enemy/Enemy Dead.wav" id="4_ptbp5"]
+[ext_resource type="AudioStream" uid="uid://dcfokhghgxxiq" path="res://SFXs/Enemy/Enemy Hurt.wav" id="5_lrhx7"]
+[ext_resource type="AudioStream" uid="uid://dnvdn65810meb" path="res://SFXs/Enemy/Enemy Explosion.wav" id="5_sfw8c"]
 
 [resource]
 script = ExtResource("1_gmglg")
@@ -17,3 +22,8 @@ forceKnockback = 1000.0
 deadEffect = ExtResource("1_m5fde")
 itemToGive = ExtResource("1_bycto")
 porcentageToDrop = 95.132
+attackSFX = ExtResource("2_uk02n")
+hurtSFX = ExtResource("5_lrhx7")
+alertSFX = ExtResource("1_t24an")
+deadSFX = ExtResource("4_ptbp5")
+explosionSFX = ExtResource("5_sfw8c")

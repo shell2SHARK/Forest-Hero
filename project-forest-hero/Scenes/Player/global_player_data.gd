@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var playerSpriteSheet := %AnimatedSprite2D # Coleta a folha de animacoes do player
 @onready var attack_area := %Attack_Area
 @onready var collisionBox : CollisionShape2D = %CollisionShape2D
+@onready var audioPlayer : AudioStreamPlayer2D = %AudioStreamPlayer2D
 @onready var life : float = playerResource.life
 @export var playerResource : PlayerData # Resource do jogador contendo sua data 
 var actualEnemy : CharacterBody2D
@@ -28,5 +29,6 @@ func set_damage(value: float):
 func _on_get_area_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("Heal")):
 		life += 1
-		print(life)
+		audioPlayer.stream = playerResource.healSFX
+		audioPlayer.play()
 		area.queue_free()

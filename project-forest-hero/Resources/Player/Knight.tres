@@ -1,6 +1,11 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://bsvbqgqqh88x8"]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=7 format=3 uid="uid://bsvbqgqqh88x8"]
 
 [ext_resource type="Script" path="res://Resources/Player/res_player.gd" id="1_5b4rl"]
+[ext_resource type="AudioStream" uid="uid://d0j6ha3qta37r" path="res://SFXs/Player/Player Attack.wav" id="1_xn4us"]
+[ext_resource type="AudioStream" uid="uid://byr86ctwwv4mj" path="res://SFXs/Player/Player Dead.wav" id="2_uowkt"]
+[ext_resource type="AudioStream" uid="uid://c70lpm7pfuweh" path="res://SFXs/Player/Player Heal.wav" id="3_8kwry"]
+[ext_resource type="AudioStream" uid="uid://cxll8vrjkmf8t" path="res://SFXs/Player/Player Hurt.wav" id="3_8y10i"]
+[ext_resource type="AudioStream" uid="uid://ddb77jfysw8r6" path="res://SFXs/Player/Player Jump.wav" id="4_icc68"]
 
 [resource]
 script = ExtResource("1_5b4rl")
@@ -10,3 +15,8 @@ jumpForce = 500.0
 swordValue = 1.0
 durationKnockback = 1.0
 forceKnockback = 1000.0
+attackSFX = ExtResource("1_xn4us")
+jumpSFX = ExtResource("4_icc68")
+hurtSFX = ExtResource("3_8y10i")
+deadSFX = ExtResource("2_uowkt")
+healSFX = ExtResource("3_8kwry")

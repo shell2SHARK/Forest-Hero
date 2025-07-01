@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var collisionBox : CollisionShape2D = %CollisionShape2D
 @onready var attack_area : Area2D = %Attack_Area
 @onready var lifeBar : ProgressBar = %Life
+@onready var audioPlayer : AudioStreamPlayer2D = %AudioStreamPlayer2D
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @export var enemyResource : EnemyData
 @onready var life : float = enemyResource.life

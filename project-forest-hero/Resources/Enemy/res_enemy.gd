@@ -21,3 +21,10 @@ class_name EnemyData
 @export var deadEffect : PackedScene
 @export var itemToGive : PackedScene
 @export_range(1,100) var porcentageToDrop
+
+@export_group("Sound Values")
+@export var attackSFX : AudioStream
+@export var hurtSFX : AudioStream
+@export var alertSFX : AudioStream
+@export var deadSFX : AudioStream
+@export var explosionSFX : AudioStream

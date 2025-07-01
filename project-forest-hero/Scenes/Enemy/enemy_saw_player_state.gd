@@ -6,6 +6,7 @@ var timeToWait := 1
 
 func enter():
 	wake_to_player()
+	play_sfx()
 
 func update(_delta: float):
 	idle_to_go(timeToWait)
@@ -21,3 +22,7 @@ func idle_to_go(value):
 	enemy.enemySpriteSheet.flip_h = enemy.player.position.x < enemy.position.x
 	await get_tree().create_timer(value).timeout
 	changed_state.emit(self, "Pursuit")
+
+func play_sfx():
+	enemy.audioPlayer.stream = enemy.enemyResource.alertSFX
+	enemy.audioPlayer.play()
