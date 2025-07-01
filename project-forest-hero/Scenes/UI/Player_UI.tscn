@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://clbsxema63k84"]
+[gd_scene load_steps=4 format=3 uid="uid://clbsxema63k84"]
 
 [ext_resource type="Texture2D" uid="uid://bcx2fy038kger" path="res://Sprites/UI/Player/Heart pixel.png" id="1_6wwk2"]
 [ext_resource type="Script" path="res://Scenes/UI/player_ui.gd" id="1_xyo0c"]
+[ext_resource type="Texture2D" uid="uid://c7vw686bun17o" path="res://Sprites/Enemy/Orc-Walk.png" id="3_5r6xl"]
 
 [node name="Player_UI" type="CanvasLayer" groups=["PlayerUI"]]
 script = ExtResource("1_xyo0c")
@@ -18,15 +19,33 @@ step = 1.0
 value = 2.0
 show_percentage = false
 
+[node name="BG_Orc_Count" type="ColorRect" parent="."]
+offset_left = 50.0
+offset_top = 103.0
+offset_right = 154.0
+offset_bottom = 129.0
+color = Color(0.19, 0.19, 0.19, 0.654902)
+
 [node name="Enemy_Count" type="Label" parent="."]
 unique_name_in_owner = true
-offset_left = 55.0
+offset_left = 100.0
 offset_top = 104.0
-offset_right = 201.0
+offset_right = 190.0
 offset_bottom = 127.0
 text = "0"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(54, 59)
-scale = Vector2(0.188976, 0.188976)
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(54, 60)
+scale = Vector2(0.133858, 0.133858)
 texture = ExtResource("1_6wwk2")
+
+[node name="Orc" type="TextureRect" parent="."]
+offset_left = -76.0
+offset_top = -14.0
+offset_right = -8.0
+offset_bottom = 56.0
+scale = Vector2(2.52451, 2.60915)
+texture = ExtResource("3_5r6xl")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_lock_ = true
