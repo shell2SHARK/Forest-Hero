@@ -1,15 +1,62 @@
-[gd_scene load_steps=5 format=3 uid="uid://ouyf2nnqaaoo"]
+[gd_scene load_steps=20 format=3 uid="uid://ouyf2nnqaaoo"]
 
 [ext_resource type="PackedScene" uid="uid://mud0ie4up7nl" path="res://Scenes/Player/Player.tscn" id="1_gvgtf"]
+[ext_resource type="Texture2D" uid="uid://bfopkryjojflr" path="res://Scenes/Stage/ActRaiser-Bloodpool-Act-1.png" id="1_xs2t8"]
 [ext_resource type="PackedScene" uid="uid://p1ge4d7wk457" path="res://Scenes/Enemy/Enemy.tscn" id="2_dgguf"]
 [ext_resource type="PackedScene" uid="uid://clbsxema63k84" path="res://Scenes/UI/Player_UI.tscn" id="3_5q6y2"]
+[ext_resource type="PackedScene" uid="uid://t88l6kwxenot" path="res://Scenes/Stage/Platform.tscn" id="5_j22xa"]
+[ext_resource type="AudioStream" uid="uid://b4cg1um683s6o" path="res://SFXs/Musics/Game Music.wav" id="5_s4ifb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13yu0"]
 size = Vector2(702, 42)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukbu0"]
+size = Vector2(1071, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsnud"]
+size = Vector2(112.5, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75ira"]
+size = Vector2(16, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8www"]
+size = Vector2(113, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvbtd"]
+size = Vector2(141, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuypb"]
+size = Vector2(18, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hdnx"]
+size = Vector2(18, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbull"]
+size = Vector2(671, 247)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57bmq"]
+size = Vector2(37, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujaal"]
+size = Vector2(187, 113)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q27ly"]
+size = Vector2(496, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob060"]
+size = Vector2(19, 15)
+
 [node name="Forest" type="Node2D"]
 
+[node name="ActRaiser-bloodpool-act-1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2220, 327.5)
+scale = Vector2(1.08252, 1.26367)
+texture = ExtResource("1_xs2t8")
+metadata/_edit_lock_ = true
+
 [node name="Floor" type="ColorRect" parent="."]
+visible = false
 offset_left = 255.0
 offset_top = 595.0
 offset_right = 955.0
@@ -23,12 +70,303 @@ position = Vector2(349, 21)
 shape = SubResource("RectangleShape2D_13yu0")
 
 [node name="Player" parent="." instance=ExtResource("1_gvgtf")]
-position = Vector2(568, 232)
-
-[node name="Enemy" parent="." instance=ExtResource("2_dgguf")]
-position = Vector2(699, 571)
-
-[node name="Enemy2" parent="." instance=ExtResource("2_dgguf")]
-position = Vector2(298, 574)
+position = Vector2(2284, 522)
 
 [node name="Player_UI" parent="." instance=ExtResource("3_5q6y2")]
+
+[node name="Music_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_s4ifb")
+volume_db = -25.0
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="Polygon2D2" type="Polygon2D" parent="Tiles"]
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(526, 493, 902, 493, 883, 429, 550, 429)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/Polygon2D2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Polygon2D2/StaticBody2D"]
+polygon = PackedVector2Array(526, 493, 902, 493, 883, 429, 550, 429)
+
+[node name="ColorRect" type="ColorRect" parent="Tiles"]
+offset_top = 557.0
+offset_right = 1063.0
+offset_bottom = 655.0
+color = Color(0.227451, 1, 0.227451, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect/StaticBody2D"]
+position = Vector2(531, 49)
+shape = SubResource("RectangleShape2D_ukbu0")
+
+[node name="ColorRect2" type="ColorRect" parent="Tiles"]
+offset_left = 1463.0
+offset_top = 558.0
+offset_right = 1574.0
+offset_bottom = 658.0
+color = Color(0.227451, 1, 0.227451, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect2/StaticBody2D"]
+position = Vector2(55, 50)
+shape = SubResource("RectangleShape2D_lsnud")
+
+[node name="ColorRect20" type="ColorRect" parent="Tiles"]
+offset_left = 2144.0
+offset_top = 248.0
+offset_right = 2159.0
+offset_bottom = 303.0
+color = Color(0.227451, 1, 0.227451, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect20"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect20/StaticBody2D"]
+position = Vector2(8, 27.5)
+shape = SubResource("RectangleShape2D_75ira")
+
+[node name="ColorRect22" type="ColorRect" parent="Tiles"]
+offset_left = 1635.0
+offset_top = 248.0
+offset_right = 1650.0
+offset_bottom = 303.0
+color = Color(0.227451, 1, 0.227451, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect22"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect22/StaticBody2D"]
+position = Vector2(8, 27.5)
+shape = SubResource("RectangleShape2D_75ira")
+
+[node name="ColorRect18" type="ColorRect" parent="Tiles"]
+offset_left = 1210.0
+offset_top = 558.0
+offset_right = 1321.0
+offset_bottom = 658.0
+color = Color(0.227451, 1, 0.227451, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect18"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect18/StaticBody2D"]
+position = Vector2(54.5, 50)
+shape = SubResource("RectangleShape2D_i8www")
+
+[node name="ColorRect7" type="ColorRect" parent="Tiles"]
+offset_left = 2208.0
+offset_top = 558.0
+offset_right = 2349.0
+offset_bottom = 658.0
+color = Color(0.227451, 1, 0.227451, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect7/StaticBody2D"]
+position = Vector2(68.5, 50)
+shape = SubResource("RectangleShape2D_nvbtd")
+
+[node name="ColorRect8" type="ColorRect" parent="Tiles"]
+offset_left = 2470.0
+offset_top = 558.0
+offset_right = 2488.0
+offset_bottom = 658.0
+color = Color(0.227451, 1, 0.227451, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect8/StaticBody2D"]
+position = Vector2(9, 50)
+shape = SubResource("RectangleShape2D_vuypb")
+
+[node name="ColorRect10" type="ColorRect" parent="Tiles"]
+offset_left = 2794.0
+offset_top = 458.0
+offset_right = 2812.0
+offset_bottom = 658.0
+color = Color(0.227451, 1, 0.227451, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect10/StaticBody2D"]
+position = Vector2(9, 100)
+shape = SubResource("RectangleShape2D_2hdnx")
+
+[node name="ColorRect11" type="ColorRect" parent="Tiles"]
+offset_left = 2906.0
+offset_top = 410.0
+offset_right = 3577.0
+offset_bottom = 658.0
+color = Color(0.227451, 1, 0.227451, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect11/StaticBody2D"]
+position = Vector2(335.5, 123.5)
+shape = SubResource("RectangleShape2D_xbull")
+
+[node name="ColorRect12" type="ColorRect" parent="Tiles"]
+offset_left = 3664.0
+offset_top = 410.0
+offset_right = 3698.0
+offset_bottom = 430.0
+color = Color(0.587619, 0.586102, 1.92523e-07, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect12/StaticBody2D"]
+position = Vector2(17.5, 10)
+shape = SubResource("RectangleShape2D_57bmq")
+
+[node name="ColorRect13" type="ColorRect" parent="Tiles"]
+offset_left = 3790.0
+offset_top = 472.0
+offset_right = 3824.0
+offset_bottom = 492.0
+color = Color(0.587619, 0.586102, 1.92523e-07, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect13/StaticBody2D"]
+position = Vector2(17.5, 10)
+shape = SubResource("RectangleShape2D_57bmq")
+
+[node name="ColorRect14" type="ColorRect" parent="Tiles"]
+offset_left = 3906.0
+offset_top = 541.0
+offset_right = 3940.0
+offset_bottom = 561.0
+color = Color(0.587619, 0.586102, 1.92523e-07, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect14/StaticBody2D"]
+position = Vector2(17.5, 10)
+shape = SubResource("RectangleShape2D_57bmq")
+
+[node name="ColorRect15" type="ColorRect" parent="Tiles"]
+offset_left = 4009.0
+offset_top = 410.0
+offset_right = 4043.0
+offset_bottom = 430.0
+color = Color(0.587619, 0.586102, 1.92523e-07, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect15"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect15/StaticBody2D"]
+position = Vector2(17.5, 10)
+shape = SubResource("RectangleShape2D_57bmq")
+
+[node name="ColorRect16" type="ColorRect" parent="Tiles"]
+offset_left = 4135.0
+offset_top = 472.0
+offset_right = 4169.0
+offset_bottom = 492.0
+color = Color(0.587619, 0.586102, 1.92523e-07, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect16"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect16/StaticBody2D"]
+position = Vector2(17.5, 10)
+shape = SubResource("RectangleShape2D_57bmq")
+
+[node name="ColorRect17" type="ColorRect" parent="Tiles"]
+offset_left = 4251.0
+offset_top = 541.0
+offset_right = 4438.0
+offset_bottom = 655.0
+color = Color(0.192157, 1, 0.129412, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect17"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect17/StaticBody2D"]
+position = Vector2(93.5, 56.5)
+shape = SubResource("RectangleShape2D_ujaal")
+
+[node name="ColorRect6" type="ColorRect" parent="Tiles"]
+offset_left = 1650.0
+offset_top = 280.0
+offset_right = 2146.0
+offset_bottom = 303.0
+color = Color(0.227451, 1, 0.227451, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect6/StaticBody2D"]
+position = Vector2(248, 12)
+shape = SubResource("RectangleShape2D_q27ly")
+
+[node name="ColorRect21" type="ColorRect" parent="Tiles"]
+offset_left = 2235.0
+offset_top = 326.0
+offset_right = 2255.0
+offset_bottom = 342.0
+color = Color(0, 0.539461, 0.539998, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect21"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect21/StaticBody2D"]
+position = Vector2(9.5, 7.5)
+shape = SubResource("RectangleShape2D_ob060")
+
+[node name="Platform_Moving" parent="Tiles" instance=ExtResource("5_j22xa")]
+position = Vector2(1676, 491)
+offset = Vector2(60, 0)
+
+[node name="Platform_Moving2" parent="Tiles" instance=ExtResource("5_j22xa")]
+position = Vector2(1910, 440)
+offset = Vector2(-60, 0)
+
+[node name="Platform_Moving3" parent="Tiles" instance=ExtResource("5_j22xa")]
+position = Vector2(2136, 395)
+offset = Vector2(60, 0)
+
+[node name="Platform_Moving4" parent="Tiles" instance=ExtResource("5_j22xa")]
+position = Vector2(2629, 581)
+rotation = 1.5708
+scale = Vector2(1.34901, 1.4206)
+offset = Vector2(120, 0)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(718, 524)
+metadata/_edit_lock_ = true
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(317, 527)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(811, 394)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(1521, 530)
+metadata/_edit_lock_ = true
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(1911, 413)
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(1686, 251)
+metadata/_edit_lock_ = true
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(1902, 250)
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(2106, 252)
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(2932, 372)
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(3222, 371)
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(3537, 378)
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(3921, 519)
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(4341, 520)
