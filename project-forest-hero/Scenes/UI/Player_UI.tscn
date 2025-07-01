@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://clbsxema63k84"]
+
+[ext_resource type="Texture2D" uid="uid://bcx2fy038kger" path="res://Sprites/UI/Player/Heart pixel.png" id="1_6wwk2"]
+[ext_resource type="Script" path="res://Scenes/UI/player_ui.gd" id="1_xyo0c"]
+
+[node name="Player_UI" type="CanvasLayer" groups=["PlayerUI"]]
+script = ExtResource("1_xyo0c")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.731045, 0.38138, 0.498178, 1)
+offset_left = 55.0
+offset_top = 53.0
+offset_right = 208.0
+offset_bottom = 74.0
+max_value = 3.0
+step = 1.0
+value = 2.0
+show_percentage = false
+
+[node name="Enemy_Count" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 55.0
+offset_top = 104.0
+offset_right = 201.0
+offset_bottom = 127.0
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(54, 59)
+scale = Vector2(0.188976, 0.188976)
+texture = ExtResource("1_6wwk2")

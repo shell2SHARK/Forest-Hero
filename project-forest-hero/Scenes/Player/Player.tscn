@@ -283,6 +283,9 @@ disabled = true
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_s8ih4")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
 script = ExtResource("6_3jg3m")
 initialState = NodePath("Movement")

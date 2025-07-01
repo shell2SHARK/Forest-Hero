@@ -17,6 +17,7 @@ func enter():
 	enemy.collisionBox.set_deferred("disabled", true)
 
 func physics_update(delta: float):
+	enemy.gravity(delta)
 	take_knockback(delta)
 
 func take_knockback(delta):

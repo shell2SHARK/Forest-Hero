@@ -11,7 +11,8 @@ func enter():
 	speedPursuit = enemy.enemyResource.speedPursuit
 	distanceToStop = enemy.enemyResource.distanceToAttack
 
-func physics_update(_delta: float):
+func physics_update(delta: float):
+	enemy.gravity(delta)
 	pursuit()
 
 func pursuit():

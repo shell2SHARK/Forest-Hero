@@ -12,7 +12,6 @@ func enter():
 	if not(enemy.attack_area.body_entered.is_connected(deal_player_damage)):
 		enemy.attack_area.body_entered.connect(deal_player_damage)
 	
-	enemy.enemyResource.distanceToAttack
 	enemy.enemySpriteSheet.play("Attack")
 
 func update(_delta: float):
