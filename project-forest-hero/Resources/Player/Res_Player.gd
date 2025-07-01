@@ -12,3 +12,10 @@ class_name PlayerData
 @export_group("Damage Values")
 @export_range(1,1000) var durationKnockback : float = 1
 @export_range(1,1000) var forceKnockback : float = 1
+
+@export_group("Sound Values")
+@export var attackSFX : AudioStream
+@export var jumpSFX : AudioStream
+@export var hurtSFX : AudioStream
+@export var deadSFX : AudioStream
+@export var healSFX : AudioStream

@@ -7,6 +7,7 @@ func enter():
 	# Chama animacao de morte
 	player.playerSpriteSheet.play("Dead")
 	player.collisionBox.set_deferred("disabled", true)
+	play_sfx()
 
 func physics_update(_delta: float):
 	# Zera os valores de movimento do jogador
@@ -15,3 +16,7 @@ func physics_update(_delta: float):
 	
 	if(Input.is_action_just_pressed("ui_accept")):
 		get_tree().reload_current_scene()
+
+func play_sfx():
+	player.audioPlayer.stream = player.playerResource.deadSFX
+	player.audioPlayer.play()

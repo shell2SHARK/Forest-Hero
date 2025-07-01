@@ -5,6 +5,7 @@ class_name EnemyDead
 
 func enter():
 	kill()
+	play_sfx()
 
 func kill():
 	enemy.enemySpriteSheet.play("Dead")
@@ -19,3 +20,7 @@ func kill():
 	deadFx.enemyResource = enemy.enemyResource
 	get_tree().current_scene.add_child(deadFx)
 	enemy.queue_free()
+
+func play_sfx():
+	enemy.audioPlayer.stream = enemy.enemyResource.deadSFX
+	enemy.audioPlayer.play()

@@ -10,6 +10,7 @@ var knockbackDamping := 10.0  # suavização
 
 func enter():
 	set_knockback()
+	play_sfx()
 
 func physics_update(delta: float):
 	enemy.gravity(delta)
@@ -22,6 +23,7 @@ func set_knockback():
 	knockbackVelocity = knockbackDirection * force
 	enemy.enemySpriteSheet.play("Knockback")
 	enemy.collisionBox.set_deferred("disabled", true)
+	enemy.attack_area.get_child(0).set_deferred("disabled", true)
 	enemy.lifeBar.visible = true
 	enemy.alertIcon.visible = false # Desativa o alerta do inimigo
 	enemy.lookArea.get_child(0).visible = false
@@ -35,3 +37,7 @@ func take_knockback(delta):
 		enemy.collisionBox.set_deferred("disabled", false)
 		changed_state.emit(self, "Pursuit")
 	enemy.move_and_slide()
+
+func play_sfx():
+	enemy.audioPlayer.stream = enemy.enemyResource.hurtSFX
+	enemy.audioPlayer.play()

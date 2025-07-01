@@ -4,20 +4,23 @@ class_name PlayerAttack
 @onready var player : CharacterBody2D = get_parent().owner
 
 func enter():
-	# Se ja houver um signal conectado de animation finished, nao chama mais apos trocar de state
-	if not(player.playerSpriteSheet.animation_finished.is_connected(animation_end)):
-		player.playerSpriteSheet.animation_finished.connect(animation_end)
-	
-	if not(player.attack_area.body_entered.is_connected(deal_enemy_damage)):
-		player.attack_area.body_entered.connect(deal_enemy_damage)
-		
+	connect_signals()
 	attack()
+	play_sfx()
 
 func update(delta: float):
 	player.gravity(delta)
 	# Se a animacao estiver no frame certo, ativa o colisor
 	if(player.playerSpriteSheet.frame >= 3):
 		player.attack_area.get_child(0).disabled = false
+
+func connect_signals():
+	# Se ja houver um signal conectado de animation finished, nao chama mais apos trocar de state
+	if not(player.playerSpriteSheet.animation_finished.is_connected(animation_end)):
+		player.playerSpriteSheet.animation_finished.connect(animation_end)
+	
+	if not(player.attack_area.body_entered.is_connected(deal_enemy_damage)):
+		player.attack_area.body_entered.connect(deal_enemy_damage)
 
 func attack():
 	# Chama animacao de ataque
@@ -33,3 +36,7 @@ func animation_end():
 	if(player.playerSpriteSheet.animation == "Attack"):
 		changed_state.emit(self, "Movement")
 		player.attack_area.get_child(0).disabled = true
+
+func play_sfx():
+	player.audioPlayer.stream = player.playerResource.attackSFX
+	player.audioPlayer.play()

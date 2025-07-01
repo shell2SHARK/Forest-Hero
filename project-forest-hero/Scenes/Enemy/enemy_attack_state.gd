@@ -6,6 +6,7 @@ var distanceToAttack := 1.0
 
 func enter():
 	connect_signals()
+	play_sfx()
 	enemy.enemySpriteSheet.play("Attack")
 
 func update(_delta: float):
@@ -40,3 +41,7 @@ func deal_player_damage(body: Node):
 		# Aplica o dano se for inimigo referente a arma do jogador
 		body.actualEnemy = enemy
 		body.set_damage(enemy.enemyResource.axeValue)
+
+func play_sfx():
+	enemy.audioPlayer.stream = enemy.enemyResource.attackSFX
+	enemy.audioPlayer.play()

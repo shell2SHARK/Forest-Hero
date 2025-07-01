@@ -25,6 +25,7 @@ func move_player(_delta) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
 		player.velocity.y = jumpVelocity
+		play_sfx()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -39,3 +40,7 @@ func move_player(_delta) -> void:
 		player.playerSpriteSheet.play("Idle")
 
 	player.move_and_slide()
+
+func play_sfx():
+	player.audioPlayer.stream = player.playerResource.jumpSFX
+	player.audioPlayer.play()
