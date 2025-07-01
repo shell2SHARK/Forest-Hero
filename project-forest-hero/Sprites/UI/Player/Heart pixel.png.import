@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v2bi0ubiwe1r"
-path="res://.godot/imported/Orc-Attack02.png-fb0720849c4b425e33072fa353ed20db.ctex"
+uid="uid://bcx2fy038kger"
+path="res://.godot/imported/Heart pixel.png-7baab35f193b7fff5403e34230765ab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Enemy/Orc-Attack02.png"
-dest_files=["res://.godot/imported/Orc-Attack02.png-fb0720849c4b425e33072fa353ed20db.ctex"]
+source_file="res://Sprites/UI/Player/Heart pixel.png"
+dest_files=["res://.godot/imported/Heart pixel.png-7baab35f193b7fff5403e34230765ab2.ctex"]
 
 [params]
 
