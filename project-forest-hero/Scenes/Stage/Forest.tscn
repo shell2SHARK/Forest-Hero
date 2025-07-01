@@ -1,11 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://ouyf2nnqaaoo"]
+[gd_scene load_steps=19 format=3 uid="uid://ouyf2nnqaaoo"]
 
 [ext_resource type="PackedScene" uid="uid://mud0ie4up7nl" path="res://Scenes/Player/Player.tscn" id="1_gvgtf"]
 [ext_resource type="Texture2D" uid="uid://bfopkryjojflr" path="res://Scenes/Stage/ActRaiser-Bloodpool-Act-1.png" id="1_xs2t8"]
 [ext_resource type="PackedScene" uid="uid://p1ge4d7wk457" path="res://Scenes/Enemy/Enemy.tscn" id="2_dgguf"]
 [ext_resource type="PackedScene" uid="uid://clbsxema63k84" path="res://Scenes/UI/Player_UI.tscn" id="3_5q6y2"]
-[ext_resource type="PackedScene" uid="uid://t88l6kwxenot" path="res://Scenes/Stage/Platform.tscn" id="5_j22xa"]
+[ext_resource type="PackedScene" uid="uid://t88l6kwxenot" path="res://Scenes/Stage/Moving_Platform.tscn" id="5_j22xa"]
 [ext_resource type="AudioStream" uid="uid://b4cg1um683s6o" path="res://SFXs/Musics/Game Music.wav" id="5_s4ifb"]
+[ext_resource type="PackedScene" uid="uid://xilr8hfrvxfm" path="res://Scenes/Stage/Falling_Platform.tscn" id="6_gbkes"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13yu0"]
 size = Vector2(702, 42)
@@ -34,17 +35,11 @@ size = Vector2(18, 200)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbull"]
 size = Vector2(671, 247)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_57bmq"]
-size = Vector2(37, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujaal"]
-size = Vector2(187, 113)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ulba"]
+size = Vector2(378, 87)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q27ly"]
 size = Vector2(496, 22)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob060"]
-size = Vector2(19, 15)
 
 [node name="Forest" type="Node2D"]
 
@@ -70,13 +65,14 @@ position = Vector2(349, 21)
 shape = SubResource("RectangleShape2D_13yu0")
 
 [node name="Player" parent="." instance=ExtResource("1_gvgtf")]
-position = Vector2(2284, 522)
+position = Vector2(66, 475)
 
 [node name="Player_UI" parent="." instance=ExtResource("3_5q6y2")]
 
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_s4ifb")
 volume_db = -25.0
+autoplay = true
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -129,9 +125,9 @@ shape = SubResource("RectangleShape2D_75ira")
 
 [node name="ColorRect22" type="ColorRect" parent="Tiles"]
 offset_left = 1635.0
-offset_top = 248.0
+offset_top = 250.0
 offset_right = 1650.0
-offset_bottom = 303.0
+offset_bottom = 305.0
 color = Color(0.227451, 1, 0.227451, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect22"]
@@ -206,82 +202,17 @@ position = Vector2(335.5, 123.5)
 shape = SubResource("RectangleShape2D_xbull")
 
 [node name="ColorRect12" type="ColorRect" parent="Tiles"]
-offset_left = 3664.0
-offset_top = 410.0
-offset_right = 3698.0
-offset_bottom = 430.0
-color = Color(0.587619, 0.586102, 1.92523e-07, 1)
+offset_left = 4311.0
+offset_top = 546.0
+offset_right = 4690.0
+offset_bottom = 637.0
+color = Color(0.227451, 1, 0.227451, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect12"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect12/StaticBody2D"]
-position = Vector2(17.5, 10)
-shape = SubResource("RectangleShape2D_57bmq")
-
-[node name="ColorRect13" type="ColorRect" parent="Tiles"]
-offset_left = 3790.0
-offset_top = 472.0
-offset_right = 3824.0
-offset_bottom = 492.0
-color = Color(0.587619, 0.586102, 1.92523e-07, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect13"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect13/StaticBody2D"]
-position = Vector2(17.5, 10)
-shape = SubResource("RectangleShape2D_57bmq")
-
-[node name="ColorRect14" type="ColorRect" parent="Tiles"]
-offset_left = 3906.0
-offset_top = 541.0
-offset_right = 3940.0
-offset_bottom = 561.0
-color = Color(0.587619, 0.586102, 1.92523e-07, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect14"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect14/StaticBody2D"]
-position = Vector2(17.5, 10)
-shape = SubResource("RectangleShape2D_57bmq")
-
-[node name="ColorRect15" type="ColorRect" parent="Tiles"]
-offset_left = 4009.0
-offset_top = 410.0
-offset_right = 4043.0
-offset_bottom = 430.0
-color = Color(0.587619, 0.586102, 1.92523e-07, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect15"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect15/StaticBody2D"]
-position = Vector2(17.5, 10)
-shape = SubResource("RectangleShape2D_57bmq")
-
-[node name="ColorRect16" type="ColorRect" parent="Tiles"]
-offset_left = 4135.0
-offset_top = 472.0
-offset_right = 4169.0
-offset_bottom = 492.0
-color = Color(0.587619, 0.586102, 1.92523e-07, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect16"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect16/StaticBody2D"]
-position = Vector2(17.5, 10)
-shape = SubResource("RectangleShape2D_57bmq")
-
-[node name="ColorRect17" type="ColorRect" parent="Tiles"]
-offset_left = 4251.0
-offset_top = 541.0
-offset_right = 4438.0
-offset_bottom = 655.0
-color = Color(0.192157, 1, 0.129412, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect17"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect17/StaticBody2D"]
-position = Vector2(93.5, 56.5)
-shape = SubResource("RectangleShape2D_ujaal")
+position = Vector2(189, 43.5)
+shape = SubResource("RectangleShape2D_2ulba")
 
 [node name="ColorRect6" type="ColorRect" parent="Tiles"]
 offset_left = 1650.0
@@ -295,19 +226,6 @@ color = Color(0.227451, 1, 0.227451, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect6/StaticBody2D"]
 position = Vector2(248, 12)
 shape = SubResource("RectangleShape2D_q27ly")
-
-[node name="ColorRect21" type="ColorRect" parent="Tiles"]
-offset_left = 2235.0
-offset_top = 326.0
-offset_right = 2255.0
-offset_bottom = 342.0
-color = Color(0, 0.539461, 0.539998, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect21"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect21/StaticBody2D"]
-position = Vector2(9.5, 7.5)
-shape = SubResource("RectangleShape2D_ob060")
 
 [node name="Platform_Moving" parent="Tiles" instance=ExtResource("5_j22xa")]
 position = Vector2(1676, 491)
@@ -326,6 +244,24 @@ position = Vector2(2629, 581)
 rotation = 1.5708
 scale = Vector2(1.34901, 1.4206)
 offset = Vector2(120, 0)
+
+[node name="Falling_Platform" parent="Tiles" instance=ExtResource("6_gbkes")]
+position = Vector2(3663, 332)
+
+[node name="Falling_Platform2" parent="Tiles" instance=ExtResource("6_gbkes")]
+position = Vector2(3782, 438)
+
+[node name="Falling_Platform3" parent="Tiles" instance=ExtResource("6_gbkes")]
+position = Vector2(3924, 557)
+
+[node name="Falling_Platform4" parent="Tiles" instance=ExtResource("6_gbkes")]
+position = Vector2(4026, 455)
+
+[node name="Falling_Platform5" parent="Tiles" instance=ExtResource("6_gbkes")]
+position = Vector2(4152, 483)
+
+[node name="Falling_Platform6" parent="Tiles" instance=ExtResource("6_gbkes")]
+position = Vector2(2259, 319)
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -367,6 +303,7 @@ position = Vector2(3537, 378)
 
 [node name="Enemy12" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(3921, 519)
+metadata/_edit_lock_ = true
 
 [node name="Enemy13" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(4341, 520)

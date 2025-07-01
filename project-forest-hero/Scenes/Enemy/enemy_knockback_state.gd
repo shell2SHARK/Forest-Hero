@@ -22,7 +22,6 @@ func set_knockback():
 	knockbackDirection = (enemy.global_position - enemy.player.global_position).normalized()
 	knockbackVelocity = knockbackDirection * force
 	enemy.enemySpriteSheet.play("Knockback")
-	enemy.collisionBox.set_deferred("disabled", true)
 	enemy.attack_area.get_child(0).set_deferred("disabled", true)
 	enemy.lifeBar.visible = true
 	enemy.alertIcon.visible = false # Desativa o alerta do inimigo
@@ -30,11 +29,10 @@ func set_knockback():
 
 func take_knockback(delta):
 	if(duration > 0):
-		enemy.velocity = knockbackVelocity
-		knockbackVelocity = lerp(knockbackVelocity, Vector2.ZERO, knockbackDamping * delta)
+		enemy.velocity.x = knockbackVelocity.x
+		knockbackVelocity.x = lerp(knockbackVelocity.x, 0.0, knockbackDamping * delta)
 		duration -= delta
 	else:
-		enemy.collisionBox.set_deferred("disabled", false)
 		changed_state.emit(self, "Pursuit")
 	enemy.move_and_slide()
 
