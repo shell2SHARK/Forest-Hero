@@ -22,6 +22,7 @@ func set_knockback():
 	knockbackVelocity = knockbackDirection * force
 	enemy.enemySpriteSheet.play("Knockback")
 	enemy.collisionBox.set_deferred("disabled", true)
+	enemy.lifeBar.visible = true
 
 func take_knockback(delta):
 	if(duration > 0):
