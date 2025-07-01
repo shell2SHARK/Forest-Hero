@@ -23,6 +23,8 @@ func set_knockback():
 	enemy.enemySpriteSheet.play("Knockback")
 	enemy.collisionBox.set_deferred("disabled", true)
 	enemy.lifeBar.visible = true
+	enemy.alertIcon.visible = false # Desativa o alerta do inimigo
+	enemy.lookArea.get_child(0).visible = false
 
 func take_knockback(delta):
 	if(duration > 0):

@@ -13,6 +13,7 @@ func update(_delta: float):
 func wake_to_player():
 	timeToWait = enemy.enemyResource.timeToWaitUntilPursuit
 	enemy.alertIcon.visible = true
+	enemy.lookArea.get_child(0).visible = false
 
 func idle_to_go(value):
 	# Fica parado e olhado para o jogador ate dar tempo de segui-lo

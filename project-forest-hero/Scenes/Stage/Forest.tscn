@@ -16,6 +16,7 @@ offset_right = 955.0
 offset_bottom = 635.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Floor"]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
 position = Vector2(349, 21)
@@ -28,6 +29,6 @@ position = Vector2(568, 232)
 position = Vector2(699, 571)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_dgguf")]
-position = Vector2(828, 571)
+position = Vector2(298, 574)
 
 [node name="Player_UI" parent="." instance=ExtResource("3_5q6y2")]
