@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @export var enemyResource : EnemyData
 @onready var life : float = enemyResource.life
+var deadByFall := false
 
 func _ready() -> void:
 	lifeBar.max_value = enemyResource.life
@@ -34,3 +35,8 @@ func set_damage(value: float):
 	else:
 		# Chama o estado de knockback imediatamente
 		$State_Machine.set_new_state($State_Machine.actualState, "Knockback")
+
+func _on_get_area_area_entered(area: Area2D) -> void:
+	if(area.is_in_group("Killzone")):
+		deadByFall = true
+		$State_Machine.set_new_state($State_Machine.actualState, "Dead")

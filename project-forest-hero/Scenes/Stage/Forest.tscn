@@ -1,8 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://ouyf2nnqaaoo"]
+[gd_scene load_steps=29 format=3 uid="uid://ouyf2nnqaaoo"]
 
 [ext_resource type="PackedScene" uid="uid://mud0ie4up7nl" path="res://Scenes/Player/Player.tscn" id="1_gvgtf"]
 [ext_resource type="PackedScene" uid="uid://p1ge4d7wk457" path="res://Scenes/Enemy/Enemy.tscn" id="2_dgguf"]
-[ext_resource type="PackedScene" uid="uid://clbsxema63k84" path="res://Scenes/UI/Player_UI.tscn" id="3_5q6y2"]
+[ext_resource type="PackedScene" uid="uid://clbsxema63k84" path="res://Scenes/UI/Player/Player_UI.tscn" id="3_5q6y2"]
 [ext_resource type="Texture2D" uid="uid://cp2qaafedmmex" path="res://Sprites/Forest/FloorBackGround.png" id="5_hcbd7"]
 [ext_resource type="PackedScene" uid="uid://t88l6kwxenot" path="res://Scenes/Stage/Moving_Platform.tscn" id="5_j22xa"]
 [ext_resource type="AudioStream" uid="uid://b4cg1um683s6o" path="res://SFXs/Musics/Game Music.wav" id="5_s4ifb"]
@@ -13,6 +13,42 @@
 [ext_resource type="Texture2D" uid="uid://th8ompyc6ue0" path="res://Sprites/Forest/1_ Trees Background.png" id="10_nq2c3"]
 [ext_resource type="Texture2D" uid="uid://b4jkpvevpqf5h" path="res://Sprites/Forest/3_ Trees.png" id="10_pu2wv"]
 [ext_resource type="PackedScene" uid="uid://ba2t6g1qpg6kq" path="res://Scenes/Waterfall/Waterfall.tscn" id="13_dn5mq"]
+
+[sub_resource type="Animation" id="Animation_uhynl"]
+resource_name = "Fade Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("White_Blink:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0if4w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("White_Blink:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6iuvj"]
+_data = {
+"Fade Out": SubResource("Animation_uhynl"),
+"RESET": SubResource("Animation_0if4w")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8o40k"]
 size = Vector2(338, 34)
@@ -32,11 +68,11 @@ size = Vector2(16, 55)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvbtd"]
 size = Vector2(141, 100)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuypb"]
-size = Vector2(18, 100)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35g0x"]
+size = Vector2(18, 31)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hdnx"]
-size = Vector2(18, 200)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc5qh"]
+size = Vector2(18, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbull"]
 size = Vector2(671, 247)
@@ -47,14 +83,30 @@ size = Vector2(378, 87)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8h8ow"]
 size = Vector2(42, 606)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuuty"]
+size = Vector2(3294, 56)
+
 [node name="Forest" type="Node2D"]
 
 [node name="Player_UI" parent="." instance=ExtResource("3_5q6y2")]
+stageMusic = ExtResource("5_s4ifb")
 
-[node name="Music_Player" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_s4ifb")
-volume_db = -25.0
-autoplay = true
+[node name="Stage_UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="White_Blink" type="ColorRect" parent="Stage_UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Stage_UI"]
+libraries = {
+"": SubResource("AnimationLibrary_6iuvj")
+}
+autoplay = "Fade Out"
 
 [node name="ParallaxBackground_BG" type="ParallaxBackground" parent="."]
 
@@ -320,8 +372,8 @@ stretch_mode = 1
 position = Vector2(2470, 558)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_07"]
-position = Vector2(9, 50)
-shape = SubResource("RectangleShape2D_vuypb")
+position = Vector2(9, 15.5)
+shape = SubResource("RectangleShape2D_35g0x")
 
 [node name="Green" type="TextureRect" parent="Tiles/Floor_07"]
 offset_left = -2.0
@@ -336,8 +388,8 @@ stretch_mode = 1
 position = Vector2(2794, 458)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_08"]
-position = Vector2(9, 100)
-shape = SubResource("RectangleShape2D_2hdnx")
+position = Vector2(9, 18.5)
+shape = SubResource("RectangleShape2D_uc5qh")
 
 [node name="Green" type="TextureRect" parent="Tiles/Floor_08"]
 offset_left = -2.0
@@ -419,7 +471,7 @@ scale = Vector2(1.34901, 1.4206)
 offset = Vector2(120, 0)
 
 [node name="Sprite2D" parent="Tiles/Platform_Moving4/AnimatableBody2D" index="0"]
-z_index = -1
+z_index = -3
 
 [node name="Falling_Platform" parent="Tiles" instance=ExtResource("6_gbkes")]
 position = Vector2(3663, 332)
@@ -454,6 +506,12 @@ shape = SubResource("RectangleShape2D_8h8ow")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tiles/Walls"]
 position = Vector2(4714, 280)
 shape = SubResource("RectangleShape2D_8h8ow")
+
+[node name="Killzone" type="Area2D" parent="Tiles" groups=["Killzone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Killzone"]
+position = Vector2(2692, 837)
+shape = SubResource("RectangleShape2D_uuuty")
 
 [node name="Waterfalls" type="Node2D" parent="."]
 

@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqv3hol0c6u4c"]
+
+[ext_resource type="Script" path="res://Scenes/UI/Win and Lose/win_ui.gd" id="1_jyirh"]
+[ext_resource type="Texture2D" uid="uid://db231kv2ufq14" path="res://Sprites/UI/Win and Lose/You win logo.png" id="3_8hens"]
+[ext_resource type="Texture2D" uid="uid://7x6j0ednivhd" path="res://Sprites/UI/Menu/Btn Start.png" id="3_ft3yi"]
+[ext_resource type="AudioStream" uid="uid://66xrodj1j2mk" path="res://SFXs/Musics/Fanfare Music.wav" id="4_dw6v0"]
+[ext_resource type="AudioStream" uid="uid://tc5kos8wisgf" path="res://SFXs/UI/Select Button.wav" id="4_qgj4h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2myxl"]
+
+[node name="Win_UI" type="CanvasLayer"]
+script = ExtResource("1_jyirh")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = -224.0
+offset_right = 300.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8hens")
+expand_mode = 1
+
+[node name="Description" type="Label" parent="UI/Logo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = 38.0
+offset_right = 21.5
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.72678, 1.72678)
+theme_override_colors/font_outline_color = Color(0.61793, 0.382709, 0.0213215, 1)
+theme_override_constants/outline_size = 2
+text = "You defeated all enemies!"
+
+[node name="Restart_BTN" type="Button" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = 91.0
+offset_right = 122.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2myxl")
+icon = ExtResource("3_ft3yi")
+flat = true
+expand_icon = true
+
+[node name="White_Blink" type="ColorRect" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="UI_SFX_Player" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_qgj4h")
+
+[node name="Music_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dw6v0")
+volume_db = -25.0
+autoplay = true
+
+[connection signal="pressed" from="UI/Restart_BTN" to="." method="_on_restart_btn_pressed"]

@@ -4,10 +4,7 @@ class_name PlayerDead
 @onready var player : CharacterBody2D = get_parent().owner
 
 func enter():
-	# Chama animacao de morte
-	player.playerSpriteSheet.play("Dead")
-	player.collisionBox.set_deferred("disabled", true)
-	play_sfx()
+	kill()
 
 func physics_update(_delta: float):
 	# Zera os valores de movimento do jogador
@@ -20,3 +17,10 @@ func physics_update(_delta: float):
 func play_sfx():
 	player.audioPlayer.stream = player.playerResource.deadSFX
 	player.audioPlayer.play()
+
+func kill():
+	player.playerSpriteSheet.play("Dead")
+	player.collisionBox.set_deferred("disabled", true)
+	play_sfx()
+	var loseScreen = player.loseScene.instantiate()
+	add_child(loseScreen)
