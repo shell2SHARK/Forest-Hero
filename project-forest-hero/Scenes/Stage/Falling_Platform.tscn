@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://xilr8hfrvxfm"]
 
 [ext_resource type="Script" path="res://Scenes/Stage/falling_platform.gd" id="1_2i0tn"]
-[ext_resource type="Texture2D" uid="uid://dhiiquari3b5f" path="res://icon.svg" id="1_4t5uh"]
+[ext_resource type="Texture2D" uid="uid://cylb023swxqhy" path="res://Sprites/Little Brick/Brick.png" id="2_0frnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ga3p2"]
 size = Vector2(28, 28)
@@ -16,8 +16,8 @@ fall_speed = 200.0
 shake_magnitude = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.21875, 0.21875)
-texture = ExtResource("1_4t5uh")
+scale = Vector2(0.280374, 0.280374)
+texture = ExtResource("2_0frnl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ga3p2")

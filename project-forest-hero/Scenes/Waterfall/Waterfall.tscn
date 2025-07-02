@@ -45,4 +45,4 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_328wp")
 animation = &"Waterfall"
 autoplay = "Waterfall"
-frame_progress = 0.122078
+frame_progress = 0.336963

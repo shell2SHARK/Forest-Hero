@@ -66,6 +66,12 @@ collision_mask = 0
 position = Vector2(349, 21)
 shape = SubResource("RectangleShape2D_13yu0")
 
+[node name="Platform_Moving4" parent="." instance=ExtResource("5_j22xa")]
+position = Vector2(2629, 495)
+rotation = 1.5708
+scale = Vector2(1.34901, 1.4206)
+offset = Vector2(120, 0)
+
 [node name="Water_BG" type="Sprite2D" parent="."]
 position = Vector2(2683, 890)
 scale = Vector2(6.66031, 2.02843)
@@ -342,12 +348,6 @@ offset = Vector2(-60, 0)
 [node name="Platform_Moving3" parent="Tiles" instance=ExtResource("5_j22xa")]
 position = Vector2(2136, 395)
 offset = Vector2(60, 0)
-
-[node name="Platform_Moving4" parent="Tiles" instance=ExtResource("5_j22xa")]
-position = Vector2(2629, 581)
-rotation = 1.5708
-scale = Vector2(1.34901, 1.4206)
-offset = Vector2(120, 0)
 
 [node name="Falling_Platform" parent="Tiles" instance=ExtResource("6_gbkes")]
 position = Vector2(3663, 332)
@@ -744,4 +744,4 @@ position = Vector2(4341, 520)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_gvgtf")]
-position = Vector2(42, 521)
+position = Vector2(2477, 410)
