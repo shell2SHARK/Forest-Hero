@@ -260,8 +260,7 @@ shape = SubResource("RectangleShape2D_0pf5m")
 unique_name_in_owner = true
 scale = Vector2(2.10526, 2.10526)
 sprite_frames = SubResource("SpriteFrames_w166o")
-animation = &"Knockback"
-frame_progress = 0.95549
+animation = &"Attack"
 
 [node name="Attack_Area" type="Area2D" parent="."]
 unique_name_in_owner = true
