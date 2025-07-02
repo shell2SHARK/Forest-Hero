@@ -1,7 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://ouyf2nnqaaoo"]
 
 [ext_resource type="PackedScene" uid="uid://mud0ie4up7nl" path="res://Scenes/Player/Player.tscn" id="1_gvgtf"]
-[ext_resource type="Texture2D" uid="uid://bfopkryjojflr" path="res://Scenes/Stage/ActRaiser-Bloodpool-Act-1.png" id="1_xs2t8"]
 [ext_resource type="PackedScene" uid="uid://p1ge4d7wk457" path="res://Scenes/Enemy/Enemy.tscn" id="2_dgguf"]
 [ext_resource type="PackedScene" uid="uid://clbsxema63k84" path="res://Scenes/UI/Player_UI.tscn" id="3_5q6y2"]
 [ext_resource type="Texture2D" uid="uid://cp2qaafedmmex" path="res://Sprites/Forest/FloorBackGround.png" id="5_hcbd7"]
@@ -47,14 +46,10 @@ size = Vector2(671, 247)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ulba"]
 size = Vector2(378, 87)
 
-[node name="Forest" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h8ow"]
+size = Vector2(42, 606)
 
-[node name="ActRaiser-bloodpool-act-1" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(2220, 327.5)
-scale = Vector2(1.08252, 1.26367)
-texture = ExtResource("1_xs2t8")
-metadata/_edit_lock_ = true
+[node name="Forest" type="Node2D"]
 
 [node name="Floor" type="ColorRect" parent="."]
 visible = false
@@ -421,92 +416,102 @@ position = Vector2(4341, 520)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_gvgtf")]
-position = Vector2(2153, 114)
+position = Vector2(42, 521)
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground_BG" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer_4" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer_4" type="ParallaxLayer" parent="ParallaxBackground_BG"]
 motion_mirroring = Vector2(1132, 0)
 
-[node name="Mountain" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_4"]
+[node name="Mountain" type="Sprite2D" parent="ParallaxBackground_BG/ParallaxLayer_4"]
 position = Vector2(0, -343)
 scale = Vector2(2.20709, 1.96321)
 texture = ExtResource("10_1uwv6")
 centered = false
 
-[node name="ParallaxLayer_3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer_3" type="ParallaxLayer" parent="ParallaxBackground_BG"]
 motion_scale = Vector2(0.4, 0.4)
 motion_mirroring = Vector2(2304, 0)
 
-[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_3"]
+[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground_BG/ParallaxLayer_3"]
 position = Vector2(0, 122)
 scale = Vector2(2.3187, 2.27236)
 texture = ExtResource("10_nq2c3")
 centered = false
 region_rect = Rect2(0, 0, 1152, 762)
 
-[node name="ParallaxLayer_D3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer_D3" type="ParallaxLayer" parent="ParallaxBackground_BG"]
 position = Vector2(1152, 0)
 motion_scale = Vector2(0.4, 0.4)
 motion_mirroring = Vector2(2304, 0)
 
-[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_D3"]
+[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground_BG/ParallaxLayer_D3"]
 position = Vector2(0, 121)
 scale = Vector2(2.28435, 2.27642)
 texture = ExtResource("10_nq2c3")
 centered = false
 region_rect = Rect2(0, 0, 1152, 762)
 
-[node name="ParallaxLayer_2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer_2" type="ParallaxLayer" parent="ParallaxBackground_BG"]
 motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(2112.05, 0)
 
-[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_2"]
+[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground_BG/ParallaxLayer_2"]
 position = Vector2(0, -52)
 scale = Vector2(2.232, 2)
 texture = ExtResource("10_pu2wv")
 centered = false
 region_rect = Rect2(0, 0, 1152, 762)
 
-[node name="ParallaxLayer_D2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer_D2" type="ParallaxLayer" parent="ParallaxBackground_BG"]
 position = Vector2(1056.25, 0)
 motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(2111.8, 0)
 
-[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_D2"]
+[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground_BG/ParallaxLayer_D2"]
 position = Vector2(0, -52)
 scale = Vector2(2.232, 2)
 texture = ExtResource("10_pu2wv")
 centered = false
 region_rect = Rect2(0, 0, 1152, 762)
 
-[node name="ParallaxLayer_1" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer_1" type="ParallaxLayer" parent="ParallaxBackground_BG"]
 motion_mirroring = Vector2(2304, 0)
 
-[node name="Green_Abyss" type="ColorRect" parent="ParallaxBackground/ParallaxLayer_1"]
+[node name="Green_Abyss" type="ColorRect" parent="ParallaxBackground_BG/ParallaxLayer_1"]
 offset_top = 575.0
 offset_right = 1211.0
 offset_bottom = 1202.0
 color = Color(1.38376e-07, 0.11187, 0.00377059, 1)
 
-[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_1"]
+[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground_BG/ParallaxLayer_1"]
 scale = Vector2(2.232, 2)
 texture = ExtResource("10_g67je")
 centered = false
 region_rect = Rect2(0, 0, 1152, 762)
 
-[node name="ParallaxLayer_D1" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer_D1" type="ParallaxLayer" parent="ParallaxBackground_BG"]
 position = Vector2(1152, 0)
 motion_mirroring = Vector2(2304, 0)
 
-[node name="Green_Abyss" type="ColorRect" parent="ParallaxBackground/ParallaxLayer_D1"]
+[node name="Green_Abyss" type="ColorRect" parent="ParallaxBackground_BG/ParallaxLayer_D1"]
 offset_top = 575.0
 offset_right = 1211.0
 offset_bottom = 1202.0
 color = Color(1.38376e-07, 0.11187, 0.00377059, 1)
 
-[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_D1"]
+[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground_BG/ParallaxLayer_D1"]
 scale = Vector2(2.232, 2)
 texture = ExtResource("10_g67je")
 centered = false
 region_rect = Rect2(0, 0, 1152, 762)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-19, 280)
+shape = SubResource("RectangleShape2D_8h8ow")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(4714, 280)
+shape = SubResource("RectangleShape2D_8h8ow")
