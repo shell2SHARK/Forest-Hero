@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4nubcwjmdpuq"
-path="res://.godot/imported/Logo.png-84eedc01fc1a2e104d7635491dffa27a.ctex"
+uid="uid://db231kv2ufq14"
+path="res://.godot/imported/You win logo.png-fc07c4e4b87726eb049fb7e83edbbedf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Menu/Logo.png"
-dest_files=["res://.godot/imported/Logo.png-84eedc01fc1a2e104d7635491dffa27a.ctex"]
+source_file="res://Sprites/UI/Win and Lose/You win logo.png"
+dest_files=["res://.godot/imported/You win logo.png-fc07c4e4b87726eb049fb7e83edbbedf.ctex"]
 
 [params]
 

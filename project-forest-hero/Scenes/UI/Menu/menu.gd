@@ -35,7 +35,7 @@ func fade_in_background():
 
 func on_fade_complete():
 	get_tree().change_scene_to_packed(sceneToGo)
-
+	
 func _on_ui_animator_animation_finished(_anim_name: StringName) -> void:
 	btnPlay.visible = true
 

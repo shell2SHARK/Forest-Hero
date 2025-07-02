@@ -1,11 +1,9 @@
 [gd_scene load_steps=31 format=3 uid="uid://5uon14rinyhq"]
 
-[ext_resource type="Script" path="res://Scenes/Menu/menu.gd" id="1_6p7wd"]
-[ext_resource type="Texture2D" uid="uid://c4nubcwjmdpuq" path="res://Sprites/Menu/Logo.png" id="1_qj4eu"]
+[ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_6p7wd"]
 [ext_resource type="Texture2D" uid="uid://chhwvu5xjk6x2" path="res://Sprites/Forest/Color Background.png" id="2_4q850"]
-[ext_resource type="PackedScene" uid="uid://ouyf2nnqaaoo" path="res://Scenes/Stage/Forest.tscn" id="2_nx1kd"]
 [ext_resource type="AudioStream" uid="uid://6xuoepf4dhaw" path="res://SFXs/Musics/Menu music.wav" id="2_o2kvt"]
-[ext_resource type="Texture2D" uid="uid://7x6j0ednivhd" path="res://Sprites/Menu/Btn Start.png" id="2_utcdt"]
+[ext_resource type="PackedScene" uid="uid://ouyf2nnqaaoo" path="res://Scenes/Stage/Forest.tscn" id="2_xm6do"]
 [ext_resource type="Texture2D" uid="uid://th8ompyc6ue0" path="res://Sprites/Forest/1_ Trees Background.png" id="3_aqp68"]
 [ext_resource type="Texture2D" uid="uid://b4jkpvevpqf5h" path="res://Sprites/Forest/3_ Trees.png" id="4_7mfik"]
 [ext_resource type="Texture2D" uid="uid://gskdo8ctqpdp" path="res://Sprites/Forest/4_ Trees.png" id="5_pamv7"]
@@ -13,44 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://cmfhs56qyhdyc" path="res://Sprites/Forest/5_ Floor Platform.png" id="7_mq6ww"]
 [ext_resource type="PackedScene" uid="uid://t88l6kwxenot" path="res://Scenes/Stage/Moving_Platform.tscn" id="8_pf5wa"]
 [ext_resource type="PackedScene" uid="uid://xilr8hfrvxfm" path="res://Scenes/Stage/Falling_Platform.tscn" id="9_bmyf6"]
+[ext_resource type="Texture2D" uid="uid://c4nubcwjmdpuq" path="res://Sprites/UI/Menu/Logo.png" id="9_y7s8y"]
 [ext_resource type="PackedScene" uid="uid://ba2t6g1qpg6kq" path="res://Scenes/Waterfall/Waterfall.tscn" id="10_5fj23"]
+[ext_resource type="Texture2D" uid="uid://7x6j0ednivhd" path="res://Sprites/UI/Menu/Btn Start.png" id="10_t8oqs"]
 [ext_resource type="AudioStream" uid="uid://tc5kos8wisgf" path="res://SFXs/UI/Select Button.wav" id="14_u448b"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtbxv"]
-size = Vector2(338, 34)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_te418"]
-size = Vector2(1071, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xobn6"]
-size = Vector2(113, 98)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_14yyn"]
-size = Vector2(496, 33)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8yjl"]
-size = Vector2(16, 55)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_giqty"]
-size = Vector2(141, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2v26"]
-size = Vector2(18, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_trucr"]
-size = Vector2(18, 200)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_in3rm"]
-size = Vector2(671, 247)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqvqr"]
-size = Vector2(378, 87)
-
-[sub_resource type="Curve2D" id="Curve2D_47bo3"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 569, 328, 0, 0, 0, 0, 4505, 335)
-}
-point_count = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0a1s5"]
 
@@ -91,15 +55,46 @@ _data = {
 "RESET": SubResource("Animation_h4ki3")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtbxv"]
+size = Vector2(338, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_te418"]
+size = Vector2(1071, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xobn6"]
+size = Vector2(113, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14yyn"]
+size = Vector2(496, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8yjl"]
+size = Vector2(16, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_giqty"]
+size = Vector2(141, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2v26"]
+size = Vector2(18, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trucr"]
+size = Vector2(18, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_in3rm"]
+size = Vector2(671, 247)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqvqr"]
+size = Vector2(378, 87)
+
+[sub_resource type="Curve2D" id="Curve2D_47bo3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 569, 328, 0, 0, 0, 0, 4505, 335)
+}
+point_count = 2
+
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_6p7wd")
 trackCameraSpeed = 10.0
-sceneToGo = ExtResource("2_nx1kd")
-
-[node name="Music_Player" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_o2kvt")
-volume_db = -25.0
-autoplay = true
+sceneToGo = ExtResource("2_xm6do")
 
 [node name="UI_SFX_Player" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -194,6 +189,90 @@ scale = Vector2(2.232, 2)
 texture = ExtResource("5_pamv7")
 centered = false
 region_rect = Rect2(0, 0, 1152, 762)
+
+[node name="Static_UI" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="Static_UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Static_UI/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="Static_UI/UI"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.0
+offset_top = 14.0
+offset_right = 220.0
+offset_bottom = 454.0
+grow_horizontal = 2
+texture = ExtResource("9_y7s8y")
+expand_mode = 1
+
+[node name="Play_Btn" type="Button" parent="Static_UI/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = -190.0
+offset_right = 111.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0a1s5")
+icon = ExtResource("10_t8oqs")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Credits" type="Label" parent="Static_UI/UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -286.0
+offset_top = -23.0
+offset_right = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "2025. Made by Bluespot Gameware."
+
+[node name="White_Blink" type="ColorRect" parent="Static_UI/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="UI_Animator" type="AnimationPlayer" parent="Static_UI"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_acbty")
+}
+autoplay = "Logo Fade"
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -735,90 +814,13 @@ limit_smoothed = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Static_UI" type="CanvasLayer" parent="."]
-
-[node name="UI" type="Control" parent="Static_UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="Static_UI/UI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Logo" type="TextureRect" parent="Static_UI/UI"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -220.0
-offset_top = 14.0
-offset_right = 220.0
-offset_bottom = 454.0
-grow_horizontal = 2
-texture = ExtResource("1_qj4eu")
-expand_mode = 1
-
-[node name="Play_Btn" type="Button" parent="Static_UI/UI"]
+[node name="Music_Player" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -111.0
-offset_top = -190.0
-offset_right = 111.0
-offset_bottom = -86.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0a1s5")
-icon = ExtResource("2_utcdt")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Credits" type="Label" parent="Static_UI/UI"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -286.0
-offset_top = -23.0
-offset_right = -10.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "2025. Made by Bluespot Gameware."
-
-[node name="White_Blink" type="ColorRect" parent="Static_UI/UI"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 1, 0)
-
-[node name="UI_Animator" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_acbty")
-}
-autoplay = "Logo Fade"
+stream = ExtResource("2_o2kvt")
+volume_db = -25.0
+autoplay = true
 
 [connection signal="pressed" from="Static_UI/UI/Play_Btn" to="." method="_on_play_btn_pressed"]
-[connection signal="animation_finished" from="UI_Animator" to="." method="_on_ui_animator_animation_finished"]
+[connection signal="animation_finished" from="Static_UI/UI_Animator" to="." method="_on_ui_animator_animation_finished"]
 
 [editable path="Tiles/Platform_Moving4"]
