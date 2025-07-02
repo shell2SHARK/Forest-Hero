@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://mud0ie4up7nl"]
+[gd_scene load_steps=46 format=3 uid="uid://mud0ie4up7nl"]
 
 [ext_resource type="Script" path="res://Scenes/Player/global_player_data.gd" id="1_j3ouu"]
 [ext_resource type="Texture2D" uid="uid://b1omwji112nk4" path="res://Sprites/Player/Soldier-Idle.png" id="3_dgt67"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bqguhck8b0sup" path="res://Sprites/Player/Soldier-Hurt.png" id="7_d5hi6"]
 [ext_resource type="Script" path="res://Scenes/Player/attack_state.gd" id="8_aot4t"]
 [ext_resource type="Script" path="res://Scenes/Player/dead_state.gd" id="10_25pq3"]
+[ext_resource type="Script" path="res://Scenes/Player/idle_state.gd" id="13_7ffak"]
 [ext_resource type="Script" path="res://Scenes/Player/knockback_state.gd" id="13_jqmgg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pf5m"]
@@ -304,5 +305,8 @@ script = ExtResource("10_25pq3")
 
 [node name="Knockback" type="Node" parent="State_Machine"]
 script = ExtResource("13_jqmgg")
+
+[node name="Idle" type="Node" parent="State_Machine"]
+script = ExtResource("13_7ffak")
 
 [connection signal="area_entered" from="Get_Area" to="." method="_on_get_area_area_entered"]

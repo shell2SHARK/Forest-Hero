@@ -31,9 +31,10 @@ func set_infos():
 	
 	if(totalEnemies <= 0):
 		musicPlayer.stop()
+		var stateMachinePlayer = player.get_node("State_Machine")
+		stateMachinePlayer.set_new_state(stateMachinePlayer.actualState, "Idle")
 		lifeBar.visible = false
 		enemyCount.visible = false
 		var winScreen = winScene.instantiate()
 		add_child(winScreen)
-		get_tree().paused = true
 		endGame = true

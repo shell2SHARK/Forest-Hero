@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://clbsxema63k84" path="res://Scenes/UI/Player/Player_UI.tscn" id="3_5q6y2"]
 [ext_resource type="Texture2D" uid="uid://cp2qaafedmmex" path="res://Sprites/Forest/FloorBackGround.png" id="5_hcbd7"]
 [ext_resource type="PackedScene" uid="uid://t88l6kwxenot" path="res://Scenes/Stage/Moving_Platform.tscn" id="5_j22xa"]
-[ext_resource type="AudioStream" uid="uid://b4cg1um683s6o" path="res://SFXs/Musics/Game Music.wav" id="5_s4ifb"]
 [ext_resource type="Texture2D" uid="uid://cmfhs56qyhdyc" path="res://Sprites/Forest/5_ Floor Platform.png" id="5_x7chj"]
 [ext_resource type="PackedScene" uid="uid://xilr8hfrvxfm" path="res://Scenes/Stage/Falling_Platform.tscn" id="6_gbkes"]
 [ext_resource type="Texture2D" uid="uid://chhwvu5xjk6x2" path="res://Sprites/Forest/Color Background.png" id="10_1uwv6"]
@@ -83,10 +82,12 @@ size = Vector2(378, 87)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8h8ow"]
 size = Vector2(42, 606)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuuty"]
+size = Vector2(3294, 56)
+
 [node name="Forest" type="Node2D"]
 
 [node name="Player_UI" parent="." instance=ExtResource("3_5q6y2")]
-stageMusic = ExtResource("5_s4ifb")
 
 [node name="Stage_UI" type="CanvasLayer" parent="."]
 visible = false
@@ -503,6 +504,12 @@ shape = SubResource("RectangleShape2D_8h8ow")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tiles/Walls"]
 position = Vector2(4714, 280)
 shape = SubResource("RectangleShape2D_8h8ow")
+
+[node name="Killzone" type="Area2D" parent="Tiles" groups=["Killzone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Killzone"]
+position = Vector2(2692, 837)
+shape = SubResource("RectangleShape2D_uuuty")
 
 [node name="Waterfalls" type="Node2D" parent="."]
 

@@ -21,7 +21,6 @@ func fade_in_background():
 	tween.tween_callback(on_fade_complete)
 
 func on_fade_complete():
-	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/UI/Menu/Menu.tscn")
 
 func _on_restart_btn_pressed() -> void:
