@@ -1,27 +1,36 @@
-[gd_scene load_steps=19 format=3 uid="uid://ouyf2nnqaaoo"]
+[gd_scene load_steps=25 format=3 uid="uid://ouyf2nnqaaoo"]
 
 [ext_resource type="PackedScene" uid="uid://mud0ie4up7nl" path="res://Scenes/Player/Player.tscn" id="1_gvgtf"]
 [ext_resource type="Texture2D" uid="uid://bfopkryjojflr" path="res://Scenes/Stage/ActRaiser-Bloodpool-Act-1.png" id="1_xs2t8"]
 [ext_resource type="PackedScene" uid="uid://p1ge4d7wk457" path="res://Scenes/Enemy/Enemy.tscn" id="2_dgguf"]
 [ext_resource type="PackedScene" uid="uid://clbsxema63k84" path="res://Scenes/UI/Player_UI.tscn" id="3_5q6y2"]
+[ext_resource type="Texture2D" uid="uid://cp2qaafedmmex" path="res://Sprites/Forest/FloorBackGround.png" id="5_hcbd7"]
 [ext_resource type="PackedScene" uid="uid://t88l6kwxenot" path="res://Scenes/Stage/Moving_Platform.tscn" id="5_j22xa"]
 [ext_resource type="AudioStream" uid="uid://b4cg1um683s6o" path="res://SFXs/Musics/Game Music.wav" id="5_s4ifb"]
+[ext_resource type="Texture2D" uid="uid://cmfhs56qyhdyc" path="res://Sprites/Forest/5_ Floor Platform.png" id="5_x7chj"]
 [ext_resource type="PackedScene" uid="uid://xilr8hfrvxfm" path="res://Scenes/Stage/Falling_Platform.tscn" id="6_gbkes"]
+[ext_resource type="Texture2D" uid="uid://chhwvu5xjk6x2" path="res://Sprites/Forest/Color Background.png" id="10_1uwv6"]
+[ext_resource type="Texture2D" uid="uid://gskdo8ctqpdp" path="res://Sprites/Forest/4_ Trees.png" id="10_g67je"]
+[ext_resource type="Texture2D" uid="uid://th8ompyc6ue0" path="res://Sprites/Forest/1_ Trees Background.png" id="10_nq2c3"]
+[ext_resource type="Texture2D" uid="uid://b4jkpvevpqf5h" path="res://Sprites/Forest/3_ Trees.png" id="10_pu2wv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13yu0"]
 size = Vector2(702, 42)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8o40k"]
+size = Vector2(338, 34)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukbu0"]
-size = Vector2(1071, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsnud"]
-size = Vector2(112.5, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_75ira"]
-size = Vector2(16, 55)
+size = Vector2(1071, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8www"]
 size = Vector2(113, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q27ly"]
+size = Vector2(496, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75ira"]
+size = Vector2(16, 55)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvbtd"]
 size = Vector2(141, 100)
@@ -37,9 +46,6 @@ size = Vector2(671, 247)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ulba"]
 size = Vector2(378, 87)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q27ly"]
-size = Vector2(496, 22)
 
 [node name="Forest" type="Node2D"]
 
@@ -64,168 +70,265 @@ collision_mask = 0
 position = Vector2(349, 21)
 shape = SubResource("RectangleShape2D_13yu0")
 
-[node name="Player" parent="." instance=ExtResource("1_gvgtf")]
-position = Vector2(66, 475)
-
 [node name="Player_UI" parent="." instance=ExtResource("3_5q6y2")]
 
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_s4ifb")
 volume_db = -25.0
-autoplay = true
 
 [node name="Tiles" type="Node2D" parent="."]
 
-[node name="Polygon2D2" type="Polygon2D" parent="Tiles"]
-color = Color(0, 1, 0, 1)
-polygon = PackedVector2Array(526, 493, 902, 493, 883, 429, 550, 429)
+[node name="Floor_01" type="StaticBody2D" parent="Tiles"]
+position = Vector2(546, 438)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/Polygon2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_01"]
+position = Vector2(169, 24)
+shape = SubResource("RectangleShape2D_8o40k")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Polygon2D2/StaticBody2D"]
-polygon = PackedVector2Array(526, 493, 902, 493, 883, 429, 550, 429)
+[node name="Black" type="TextureRect" parent="Tiles/Floor_01"]
+offset_top = 19.0
+offset_right = 338.0
+offset_bottom = 153.0
+texture = ExtResource("5_hcbd7")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="Tiles"]
-offset_top = 557.0
-offset_right = 1063.0
-offset_bottom = 655.0
-color = Color(0.227451, 1, 0.227451, 1)
+[node name="Green" type="TextureRect" parent="Tiles/Floor_01"]
+offset_right = 338.0
+offset_bottom = 49.0
+texture = ExtResource("5_x7chj")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect"]
+[node name="Floor_02" type="StaticBody2D" parent="Tiles"]
+position = Vector2(0, 557)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect/StaticBody2D"]
-position = Vector2(531, 49)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_02"]
+position = Vector2(531, 71)
 shape = SubResource("RectangleShape2D_ukbu0")
 
-[node name="ColorRect2" type="ColorRect" parent="Tiles"]
-offset_left = 1463.0
-offset_top = 558.0
-offset_right = 1574.0
-offset_bottom = 658.0
-color = Color(0.227451, 1, 0.227451, 1)
+[node name="Black" type="TextureRect" parent="Tiles/Floor_02"]
+self_modulate = Color(0, 0, 0, 1)
+offset_top = 16.0
+offset_right = 1062.0
+offset_bottom = 641.0
+texture = ExtResource("5_hcbd7")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect2"]
+[node name="Green" type="TextureRect" parent="Tiles/Floor_02"]
+offset_right = 1063.0
+offset_bottom = 50.0
+texture = ExtResource("5_x7chj")
+stretch_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect2/StaticBody2D"]
-position = Vector2(55, 50)
-shape = SubResource("RectangleShape2D_lsnud")
+[node name="Floor_03" type="StaticBody2D" parent="Tiles"]
+position = Vector2(1210, 558)
 
-[node name="ColorRect20" type="ColorRect" parent="Tiles"]
-offset_left = 2144.0
-offset_top = 248.0
-offset_right = 2159.0
-offset_bottom = 303.0
-color = Color(0.227451, 1, 0.227451, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect20"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect20/StaticBody2D"]
-position = Vector2(8, 27.5)
-shape = SubResource("RectangleShape2D_75ira")
-
-[node name="ColorRect22" type="ColorRect" parent="Tiles"]
-offset_left = 1635.0
-offset_top = 250.0
-offset_right = 1650.0
-offset_bottom = 305.0
-color = Color(0.227451, 1, 0.227451, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect22"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect22/StaticBody2D"]
-position = Vector2(8, 27.5)
-shape = SubResource("RectangleShape2D_75ira")
-
-[node name="ColorRect18" type="ColorRect" parent="Tiles"]
-offset_left = 1210.0
-offset_top = 558.0
-offset_right = 1321.0
-offset_bottom = 658.0
-color = Color(0.227451, 1, 0.227451, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect18"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect18/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_03"]
 position = Vector2(54.5, 50)
 shape = SubResource("RectangleShape2D_i8www")
 
-[node name="ColorRect7" type="ColorRect" parent="Tiles"]
-offset_left = 2208.0
-offset_top = 558.0
-offset_right = 2349.0
-offset_bottom = 658.0
-color = Color(0.227451, 1, 0.227451, 1)
+[node name="Black" type="TextureRect" parent="Tiles/Floor_03"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -2.0
+offset_top = 10.0
+offset_right = 111.0
+offset_bottom = 643.0
+texture = ExtResource("5_hcbd7")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect7"]
+[node name="Green" type="TextureRect" parent="Tiles/Floor_03"]
+offset_left = -2.0
+offset_top = -6.0
+offset_right = 112.0
+offset_bottom = 44.0
+texture = ExtResource("5_x7chj")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect7/StaticBody2D"]
+[node name="Floor_04" type="StaticBody2D" parent="Tiles"]
+position = Vector2(1464, 558)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_04"]
+position = Vector2(54.5, 50)
+shape = SubResource("RectangleShape2D_i8www")
+
+[node name="Black" type="TextureRect" parent="Tiles/Floor_04"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -2.0
+offset_top = 10.0
+offset_right = 111.0
+offset_bottom = 643.0
+texture = ExtResource("5_hcbd7")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Green" type="TextureRect" parent="Tiles/Floor_04"]
+offset_left = -2.0
+offset_top = -6.0
+offset_right = 112.0
+offset_bottom = 44.0
+texture = ExtResource("5_x7chj")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Floor_05" type="StaticBody2D" parent="Tiles"]
+position = Vector2(1650, 280)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_05"]
+position = Vector2(248, 17.5)
+shape = SubResource("RectangleShape2D_q27ly")
+
+[node name="Green" type="TextureRect" parent="Tiles/Floor_05"]
+offset_left = -2.0
+offset_top = -6.0
+offset_right = 496.0
+offset_bottom = 44.0
+texture = ExtResource("5_x7chj")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Point_A" type="StaticBody2D" parent="Tiles/Floor_05"]
+position = Vector2(-18, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_05/Point_A"]
+position = Vector2(8, 27.5)
+shape = SubResource("RectangleShape2D_75ira")
+
+[node name="Green" type="TextureRect" parent="Tiles/Floor_05/Point_A"]
+offset_right = 16.0
+offset_bottom = 43.0
+texture = ExtResource("5_x7chj")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Point_B" type="StaticBody2D" parent="Tiles/Floor_05"]
+position = Vector2(496, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_05/Point_B"]
+position = Vector2(8, 27.5)
+shape = SubResource("RectangleShape2D_75ira")
+
+[node name="Green" type="TextureRect" parent="Tiles/Floor_05/Point_B"]
+offset_left = 16.0
+offset_right = 32.0
+offset_bottom = 43.0
+scale = Vector2(-1, 1)
+texture = ExtResource("5_x7chj")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Floor_06" type="StaticBody2D" parent="Tiles"]
+position = Vector2(2208, 558)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_06"]
 position = Vector2(68.5, 50)
 shape = SubResource("RectangleShape2D_nvbtd")
 
-[node name="ColorRect8" type="ColorRect" parent="Tiles"]
-offset_left = 2470.0
-offset_top = 558.0
-offset_right = 2488.0
-offset_bottom = 658.0
-color = Color(0.227451, 1, 0.227451, 1)
+[node name="Black" type="TextureRect" parent="Tiles/Floor_06"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -2.0
+offset_top = 10.0
+offset_right = 140.0
+offset_bottom = 643.0
+texture = ExtResource("5_hcbd7")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect8"]
+[node name="Green" type="TextureRect" parent="Tiles/Floor_06"]
+offset_left = -2.0
+offset_top = -6.0
+offset_right = 141.0
+offset_bottom = 44.0
+texture = ExtResource("5_x7chj")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect8/StaticBody2D"]
+[node name="Floor_07" type="StaticBody2D" parent="Tiles"]
+position = Vector2(2470, 558)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_07"]
 position = Vector2(9, 50)
 shape = SubResource("RectangleShape2D_vuypb")
 
-[node name="ColorRect10" type="ColorRect" parent="Tiles"]
-offset_left = 2794.0
-offset_top = 458.0
-offset_right = 2812.0
-offset_bottom = 658.0
-color = Color(0.227451, 1, 0.227451, 1)
+[node name="Green" type="TextureRect" parent="Tiles/Floor_07"]
+offset_left = -2.0
+offset_top = -6.0
+offset_right = 21.0
+offset_bottom = 44.0
+texture = ExtResource("5_x7chj")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect10"]
+[node name="Floor_08" type="StaticBody2D" parent="Tiles"]
+position = Vector2(2794, 458)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect10/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_08"]
 position = Vector2(9, 100)
 shape = SubResource("RectangleShape2D_2hdnx")
 
-[node name="ColorRect11" type="ColorRect" parent="Tiles"]
-offset_left = 2906.0
-offset_top = 410.0
-offset_right = 3577.0
-offset_bottom = 658.0
-color = Color(0.227451, 1, 0.227451, 1)
+[node name="Green" type="TextureRect" parent="Tiles/Floor_08"]
+offset_left = -2.0
+offset_top = -6.0
+offset_right = 21.0
+offset_bottom = 44.0
+texture = ExtResource("5_x7chj")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect11"]
+[node name="Floor_09" type="StaticBody2D" parent="Tiles"]
+position = Vector2(2906, 410)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect11/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_09"]
 position = Vector2(335.5, 123.5)
 shape = SubResource("RectangleShape2D_xbull")
 
-[node name="ColorRect12" type="ColorRect" parent="Tiles"]
-offset_left = 4311.0
-offset_top = 546.0
-offset_right = 4690.0
-offset_bottom = 637.0
-color = Color(0.227451, 1, 0.227451, 1)
+[node name="Black" type="TextureRect" parent="Tiles/Floor_09"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -2.0
+offset_top = 10.0
+offset_right = 673.0
+offset_bottom = 786.0
+texture = ExtResource("5_hcbd7")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect12"]
+[node name="Green" type="TextureRect" parent="Tiles/Floor_09"]
+offset_left = -2.0
+offset_top = -6.0
+offset_right = 673.0
+offset_bottom = 44.0
+texture = ExtResource("5_x7chj")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect12/StaticBody2D"]
+[node name="Floor_10" type="StaticBody2D" parent="Tiles"]
+position = Vector2(4311, 546)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Floor_10"]
 position = Vector2(189, 43.5)
 shape = SubResource("RectangleShape2D_2ulba")
 
-[node name="ColorRect6" type="ColorRect" parent="Tiles"]
-offset_left = 1650.0
-offset_top = 280.0
-offset_right = 2146.0
-offset_bottom = 303.0
-color = Color(0.227451, 1, 0.227451, 1)
+[node name="Black" type="TextureRect" parent="Tiles/Floor_10"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -2.0
+offset_top = 10.0
+offset_right = 384.0
+offset_bottom = 660.0
+texture = ExtResource("5_hcbd7")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles/ColorRect6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/ColorRect6/StaticBody2D"]
-position = Vector2(248, 12)
-shape = SubResource("RectangleShape2D_q27ly")
+[node name="Green" type="TextureRect" parent="Tiles/Floor_10"]
+offset_left = -2.0
+offset_top = -6.0
+offset_right = 382.0
+offset_bottom = 44.0
+texture = ExtResource("5_x7chj")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="Platform_Moving" parent="Tiles" instance=ExtResource("5_j22xa")]
 position = Vector2(1676, 491)
@@ -271,9 +374,11 @@ metadata/_edit_lock_ = true
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(317, 527)
+metadata/_edit_lock_ = true
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(811, 394)
+metadata/_edit_lock_ = true
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(1521, 530)
@@ -281,6 +386,7 @@ metadata/_edit_lock_ = true
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(1911, 413)
+metadata/_edit_lock_ = true
 
 [node name="Enemy6" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(1686, 251)
@@ -288,18 +394,23 @@ metadata/_edit_lock_ = true
 
 [node name="Enemy7" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(1902, 250)
+metadata/_edit_lock_ = true
 
 [node name="Enemy8" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(2106, 252)
+metadata/_edit_lock_ = true
 
 [node name="Enemy9" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(2932, 372)
+metadata/_edit_lock_ = true
 
 [node name="Enemy10" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(3222, 371)
+metadata/_edit_lock_ = true
 
 [node name="Enemy11" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(3537, 378)
+metadata/_edit_lock_ = true
 
 [node name="Enemy12" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(3921, 519)
@@ -307,3 +418,95 @@ metadata/_edit_lock_ = true
 
 [node name="Enemy13" parent="Enemies" instance=ExtResource("2_dgguf")]
 position = Vector2(4341, 520)
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("1_gvgtf")]
+position = Vector2(2153, 114)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer_4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1132, 0)
+
+[node name="Mountain" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_4"]
+position = Vector2(0, -343)
+scale = Vector2(2.20709, 1.96321)
+texture = ExtResource("10_1uwv6")
+centered = false
+
+[node name="ParallaxLayer_3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(2304, 0)
+
+[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_3"]
+position = Vector2(0, 122)
+scale = Vector2(2.3187, 2.27236)
+texture = ExtResource("10_nq2c3")
+centered = false
+region_rect = Rect2(0, 0, 1152, 762)
+
+[node name="ParallaxLayer_D3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(1152, 0)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(2304, 0)
+
+[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_D3"]
+position = Vector2(0, 121)
+scale = Vector2(2.28435, 2.27642)
+texture = ExtResource("10_nq2c3")
+centered = false
+region_rect = Rect2(0, 0, 1152, 762)
+
+[node name="ParallaxLayer_2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(2112.05, 0)
+
+[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_2"]
+position = Vector2(0, -52)
+scale = Vector2(2.232, 2)
+texture = ExtResource("10_pu2wv")
+centered = false
+region_rect = Rect2(0, 0, 1152, 762)
+
+[node name="ParallaxLayer_D2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(1056.25, 0)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(2111.8, 0)
+
+[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_D2"]
+position = Vector2(0, -52)
+scale = Vector2(2.232, 2)
+texture = ExtResource("10_pu2wv")
+centered = false
+region_rect = Rect2(0, 0, 1152, 762)
+
+[node name="ParallaxLayer_1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2304, 0)
+
+[node name="Green_Abyss" type="ColorRect" parent="ParallaxBackground/ParallaxLayer_1"]
+offset_top = 575.0
+offset_right = 1211.0
+offset_bottom = 1202.0
+color = Color(1.38376e-07, 0.11187, 0.00377059, 1)
+
+[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_1"]
+scale = Vector2(2.232, 2)
+texture = ExtResource("10_g67je")
+centered = false
+region_rect = Rect2(0, 0, 1152, 762)
+
+[node name="ParallaxLayer_D1" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(1152, 0)
+motion_mirroring = Vector2(2304, 0)
+
+[node name="Green_Abyss" type="ColorRect" parent="ParallaxBackground/ParallaxLayer_D1"]
+offset_top = 575.0
+offset_right = 1211.0
+offset_bottom = 1202.0
+color = Color(1.38376e-07, 0.11187, 0.00377059, 1)
+
+[node name="Tree_01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_D1"]
+scale = Vector2(2.232, 2)
+texture = ExtResource("10_g67je")
+centered = false
+region_rect = Rect2(0, 0, 1152, 762)
