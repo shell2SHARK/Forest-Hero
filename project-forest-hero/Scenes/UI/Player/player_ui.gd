@@ -1,8 +1,7 @@
 extends CanvasLayer
 
 @export var stageMusic : AudioStream
-#@onready var loseScene : PackedScene
-@onready var winScene : PackedScene = preload("res://Scenes/UI/Win/Win_UI.tscn")
+@onready var winScene : PackedScene = preload("res://Scenes/UI/Win and Lose/Win_UI.tscn")
 @onready var musicPlayer : AudioStreamPlayer = %Music_Player
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @onready var lifeBar : ProgressBar = %Life_Bar
@@ -30,7 +29,7 @@ func set_infos():
 	enemyCount.text = str(totalEnemies)
 	
 	if(totalEnemies <= 0):
-		musicPlayer.stop()
+		stop_music()
 		var stateMachinePlayer = player.get_node("State_Machine")
 		stateMachinePlayer.set_new_state(stateMachinePlayer.actualState, "Idle")
 		lifeBar.visible = false
@@ -38,3 +37,6 @@ func set_infos():
 		var winScreen = winScene.instantiate()
 		add_child(winScreen)
 		endGame = true
+
+func stop_music():
+	musicPlayer.stop()

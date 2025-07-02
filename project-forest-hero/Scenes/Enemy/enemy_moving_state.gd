@@ -11,6 +11,7 @@ func enter():
 	get_initial_dir()
 	speedPatrol = enemy.enemyResource.speedPatrol
 	enemy.lookArea.get_child(0).visible = true
+	enemy.lifeBar.visible = false
 
 func physics_update(delta: float):
 	move(delta)
