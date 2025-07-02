@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ouyf2nnqaaoo"]
+[gd_scene load_steps=26 format=3 uid="uid://ouyf2nnqaaoo"]
 
 [ext_resource type="PackedScene" uid="uid://mud0ie4up7nl" path="res://Scenes/Player/Player.tscn" id="1_gvgtf"]
 [ext_resource type="PackedScene" uid="uid://p1ge4d7wk457" path="res://Scenes/Enemy/Enemy.tscn" id="2_dgguf"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://gskdo8ctqpdp" path="res://Sprites/Forest/4_ Trees.png" id="10_g67je"]
 [ext_resource type="Texture2D" uid="uid://th8ompyc6ue0" path="res://Sprites/Forest/1_ Trees Background.png" id="10_nq2c3"]
 [ext_resource type="Texture2D" uid="uid://b4jkpvevpqf5h" path="res://Sprites/Forest/3_ Trees.png" id="10_pu2wv"]
+[ext_resource type="PackedScene" uid="uid://ba2t6g1qpg6kq" path="res://Scenes/Waterfall/Waterfall.tscn" id="13_dn5mq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13yu0"]
 size = Vector2(702, 42)
@@ -64,6 +65,11 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
 position = Vector2(349, 21)
 shape = SubResource("RectangleShape2D_13yu0")
+
+[node name="Water_BG" type="Sprite2D" parent="."]
+position = Vector2(2683, 890)
+scale = Vector2(6.66031, 2.02843)
+texture = ExtResource("10_1uwv6")
 
 [node name="Player_UI" parent="." instance=ExtResource("3_5q6y2")]
 
@@ -361,63 +367,6 @@ position = Vector2(4152, 483)
 [node name="Falling_Platform6" parent="Tiles" instance=ExtResource("6_gbkes")]
 position = Vector2(2259, 319)
 
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Enemy" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(718, 524)
-metadata/_edit_lock_ = true
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(317, 527)
-metadata/_edit_lock_ = true
-
-[node name="Enemy3" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(811, 394)
-metadata/_edit_lock_ = true
-
-[node name="Enemy4" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(1521, 530)
-metadata/_edit_lock_ = true
-
-[node name="Enemy5" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(1911, 413)
-metadata/_edit_lock_ = true
-
-[node name="Enemy6" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(1686, 251)
-metadata/_edit_lock_ = true
-
-[node name="Enemy7" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(1902, 250)
-metadata/_edit_lock_ = true
-
-[node name="Enemy8" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(2106, 252)
-metadata/_edit_lock_ = true
-
-[node name="Enemy9" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(2932, 372)
-metadata/_edit_lock_ = true
-
-[node name="Enemy10" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(3222, 371)
-metadata/_edit_lock_ = true
-
-[node name="Enemy11" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(3537, 378)
-metadata/_edit_lock_ = true
-
-[node name="Enemy12" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(3921, 519)
-metadata/_edit_lock_ = true
-
-[node name="Enemy13" parent="Enemies" instance=ExtResource("2_dgguf")]
-position = Vector2(4341, 520)
-metadata/_edit_lock_ = true
-
-[node name="Player" parent="." instance=ExtResource("1_gvgtf")]
-position = Vector2(42, 521)
-
 [node name="ParallaxBackground_BG" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer_4" type="ParallaxLayer" parent="ParallaxBackground_BG"]
@@ -476,6 +425,7 @@ centered = false
 region_rect = Rect2(0, 0, 1152, 762)
 
 [node name="ParallaxLayer_1" type="ParallaxLayer" parent="ParallaxBackground_BG"]
+motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(2304, 0)
 
 [node name="Green_Abyss" type="ColorRect" parent="ParallaxBackground_BG/ParallaxLayer_1"]
@@ -492,6 +442,7 @@ region_rect = Rect2(0, 0, 1152, 762)
 
 [node name="ParallaxLayer_D1" type="ParallaxLayer" parent="ParallaxBackground_BG"]
 position = Vector2(1152, 0)
+motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(2304, 0)
 
 [node name="Green_Abyss" type="ColorRect" parent="ParallaxBackground_BG/ParallaxLayer_D1"]
@@ -515,3 +466,282 @@ shape = SubResource("RectangleShape2D_8h8ow")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
 position = Vector2(4714, 280)
 shape = SubResource("RectangleShape2D_8h8ow")
+
+[node name="Waterfalls" type="Node2D" parent="."]
+
+[node name="Waterfall" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1082, 902)
+scale = Vector2(1, 1.22266)
+frame_progress = 0.429942
+
+[node name="Waterfall2" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1130, 901)
+scale = Vector2(1.61719, 1.21875)
+frame_progress = 0.459966
+
+[node name="Waterfall3" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1181, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.895214
+
+[node name="Waterfall4" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1341, 902)
+scale = Vector2(1, 1.22266)
+frame_progress = 0.0412927
+
+[node name="Waterfall5" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1386, 901)
+scale = Vector2(1.61719, 1.21875)
+frame_progress = 0.29758
+
+[node name="Waterfall6" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1434, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.630642
+
+[node name="Waterfall7" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1595, 902)
+scale = Vector2(1, 1.22266)
+frame_progress = 0.754387
+
+[node name="Waterfall8" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1645, 901)
+scale = Vector2(1.61719, 1.21875)
+frame_progress = 0.0106762
+
+[node name="Waterfall9" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1697, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall10" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1741, 902)
+scale = Vector2(1, 1.22266)
+frame_progress = 0.754387
+
+[node name="Waterfall11" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1791, 901)
+scale = Vector2(1.61719, 1.21875)
+frame_progress = 0.0106762
+
+[node name="Waterfall12" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1843, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall13" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1893, 902)
+scale = Vector2(1, 1.22266)
+frame_progress = 0.754387
+
+[node name="Waterfall14" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1943, 901)
+scale = Vector2(1.61719, 1.21875)
+frame_progress = 0.0106762
+
+[node name="Waterfall15" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(1995, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall16" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2039, 902)
+scale = Vector2(1, 1.22266)
+frame_progress = 0.754387
+
+[node name="Waterfall17" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2089, 901)
+scale = Vector2(1.61719, 1.21875)
+frame_progress = 0.0106762
+
+[node name="Waterfall18" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2141, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall19" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2180, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall20" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2369, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall21" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2411, 902)
+scale = Vector2(1, 1.22266)
+frame_progress = 0.754387
+
+[node name="Waterfall22" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2470, 901)
+scale = Vector2(1.61719, 1.21875)
+frame_progress = 0.0106762
+
+[node name="Waterfall23" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2533, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall24" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2580, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall25" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2625, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall26" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2672, 902)
+scale = Vector2(1, 1.22266)
+frame_progress = 0.754387
+
+[node name="Waterfall27" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2731, 901)
+scale = Vector2(1.61719, 1.21875)
+frame_progress = 0.0106762
+
+[node name="Waterfall28" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2794, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall29" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2841, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall30" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(2877, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall31" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(3598, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall32" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(3641, 902)
+scale = Vector2(1, 1.22266)
+frame_progress = 0.754387
+
+[node name="Waterfall33" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(3700, 901)
+scale = Vector2(1.61719, 1.21875)
+frame_progress = 0.0106762
+
+[node name="Waterfall34" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(3763, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall35" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(3810, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall36" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(3855, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall37" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(3902, 902)
+scale = Vector2(1, 1.22266)
+frame_progress = 0.754387
+
+[node name="Waterfall38" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(3961, 901)
+scale = Vector2(1.61719, 1.21875)
+frame_progress = 0.0106762
+
+[node name="Waterfall39" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(4024, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall40" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(4071, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall41" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(4107, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall42" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(4161, 901)
+scale = Vector2(1.61719, 1.21875)
+frame_progress = 0.0106762
+
+[node name="Waterfall43" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(4224, 899)
+scale = Vector2(1, 1.21094)
+frame_progress = 0.343737
+
+[node name="Waterfall44" parent="Waterfalls" instance=ExtResource("13_dn5mq")]
+position = Vector2(4279, 899)
+scale = Vector2(1.05469, 1.21094)
+frame_progress = 0.343737
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(718, 524)
+metadata/_edit_lock_ = true
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(317, 527)
+metadata/_edit_lock_ = true
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(811, 394)
+metadata/_edit_lock_ = true
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(1521, 530)
+metadata/_edit_lock_ = true
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(1911, 413)
+metadata/_edit_lock_ = true
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(1686, 251)
+metadata/_edit_lock_ = true
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(1902, 250)
+metadata/_edit_lock_ = true
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(2106, 252)
+metadata/_edit_lock_ = true
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(2932, 372)
+metadata/_edit_lock_ = true
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(3222, 371)
+metadata/_edit_lock_ = true
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(3537, 378)
+metadata/_edit_lock_ = true
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(3921, 519)
+metadata/_edit_lock_ = true
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource("2_dgguf")]
+position = Vector2(4341, 520)
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("1_gvgtf")]
+position = Vector2(42, 521)
