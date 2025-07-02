@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de05ke2m6dm4l"
-path="res://.godot/imported/Exclamacao.png-c54850714b48db1f77b7167031db387f.ctex"
+uid="uid://ca8wc2mhkt30f"
+path="res://.godot/imported/W1001.png-9ec9d208b11a6dc5a3303491c4f28d60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Enemy/Exclamacao.png"
-dest_files=["res://.godot/imported/Exclamacao.png-c54850714b48db1f77b7167031db387f.ctex"]
+source_file="res://Sprites/Waterfall/W1001.png"
+dest_files=["res://.godot/imported/W1001.png-9ec9d208b11a6dc5a3303491c4f28d60.ctex"]
 
 [params]
 

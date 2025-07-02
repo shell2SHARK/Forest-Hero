@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://xilr8hfrvxfm"]
+
+[ext_resource type="Script" path="res://Scenes/Stage/falling_platform.gd" id="1_2i0tn"]
+[ext_resource type="Texture2D" uid="uid://cylb023swxqhy" path="res://Sprites/Little Brick/Brick.png" id="2_0frnl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ga3p2"]
+size = Vector2(28, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tb1k"]
+size = Vector2(36, 36)
+
+[node name="Falling_Platform" type="AnimatableBody2D"]
+script = ExtResource("1_2i0tn")
+shake_duration = 2.0
+fall_speed = 200.0
+shake_magnitude = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.280374, 0.280374)
+texture = ExtResource("2_0frnl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ga3p2")
+
+[node name="Area_Detect_Player" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Detect_Player"]
+shape = SubResource("RectangleShape2D_5tb1k")
+
+[connection signal="body_entered" from="Area_Detect_Player" to="." method="_on_area_detect_player_body_entered"]

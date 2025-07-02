@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://ba2t6g1qpg6kq"]
+
+[ext_resource type="Texture2D" uid="uid://ca8wc2mhkt30f" path="res://Sprites/Waterfall/W1001.png" id="1_3g2tt"]
+[ext_resource type="Texture2D" uid="uid://cgser14x0cphx" path="res://Sprites/Waterfall/W1002.png" id="2_gme6g"]
+[ext_resource type="Texture2D" uid="uid://cf63pqi75h54w" path="res://Sprites/Waterfall/W1003.png" id="3_hnkgc"]
+[ext_resource type="Texture2D" uid="uid://cd7wv32ea26s1" path="res://Sprites/Waterfall/W1004.png" id="4_238d4"]
+[ext_resource type="Texture2D" uid="uid://dp33x4nsj6qfc" path="res://Sprites/Waterfall/W1005.png" id="5_ioc53"]
+[ext_resource type="Texture2D" uid="uid://i2cdf4aysh8v" path="res://Sprites/Waterfall/W1006.png" id="6_rg0du"]
+[ext_resource type="Texture2D" uid="uid://d0gpytps0lpwh" path="res://Sprites/Waterfall/W1007.png" id="7_57peh"]
+[ext_resource type="Texture2D" uid="uid://bild0unnlo3lo" path="res://Sprites/Waterfall/W1008.png" id="8_ee8h0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_328wp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3g2tt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gme6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hnkgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_238d4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ioc53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rg0du")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_57peh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ee8h0")
+}],
+"loop": true,
+"name": &"Waterfall",
+"speed": 20.0
+}]
+
+[node name="Waterfall" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_328wp")
+animation = &"Waterfall"
+autoplay = "Waterfall"
+frame_progress = 0.336963

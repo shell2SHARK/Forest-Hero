@@ -33,6 +33,7 @@ func move(delta):
 func check_to_flip():
 	# Ele flipa ao nao ter mais chao ou tocando em outro inimigo
 	if(!enemy.raycastFloor.get_collider() is StaticBody2D or
+		enemy.raycastVision.get_collider() is StaticBody2D or
 		enemy.raycastVision.get_collider() and enemy.raycastVision.get_collider().is_in_group("Enemy")):
 		# Se nao estiver mais tocando no chao, inverte o valor de direction para ir em outra direcao
 		direction *= -1

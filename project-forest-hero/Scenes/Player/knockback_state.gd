@@ -26,8 +26,8 @@ func set_knockback():
 
 func take_knockback(delta):
 	if(duration > 0):
-		player.velocity = knockbackVelocity
-		knockbackVelocity = lerp(knockbackVelocity, Vector2.ZERO, knockbackDamping * delta)
+		player.velocity.x = knockbackVelocity.x
+		knockbackVelocity.x = lerp(knockbackVelocity.x, 0.0, knockbackDamping * delta)
 		duration -= delta
 	else:
 		#player.collisionBox.set_deferred("disabled", false)

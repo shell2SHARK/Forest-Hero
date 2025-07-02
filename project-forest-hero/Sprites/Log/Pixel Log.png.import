@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de05ke2m6dm4l"
-path="res://.godot/imported/Exclamacao.png-c54850714b48db1f77b7167031db387f.ctex"
+uid="uid://bt1lbd3ji7wfj"
+path="res://.godot/imported/Pixel Log.png-ac0abbfd76f53aa55b220bb65fca802e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Enemy/Exclamacao.png"
-dest_files=["res://.godot/imported/Exclamacao.png-c54850714b48db1f77b7167031db387f.ctex"]
+source_file="res://Sprites/Log/Pixel Log.png"
+dest_files=["res://.godot/imported/Pixel Log.png-ac0abbfd76f53aa55b220bb65fca802e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de05ke2m6dm4l"
-path="res://.godot/imported/Exclamacao.png-c54850714b48db1f77b7167031db387f.ctex"
+uid="uid://th8ompyc6ue0"
+path="res://.godot/imported/1_ Trees Background.png-02b96d46c0f422d6f3e251351186be4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Enemy/Exclamacao.png"
-dest_files=["res://.godot/imported/Exclamacao.png-c54850714b48db1f77b7167031db387f.ctex"]
+source_file="res://Sprites/Forest/1_ Trees Background.png"
+dest_files=["res://.godot/imported/1_ Trees Background.png-02b96d46c0f422d6f3e251351186be4c.ctex"]
 
 [params]
 
