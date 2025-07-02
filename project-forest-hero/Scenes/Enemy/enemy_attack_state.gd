@@ -9,7 +9,8 @@ func enter():
 	play_sfx()
 	enemy.enemySpriteSheet.play("Attack")
 
-func update(_delta: float):
+func physics_update(delta: float):
+	enemy.gravity(delta)
 	check_frames_to_hitbox()
 
 func connect_signals():
