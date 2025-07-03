@@ -18,6 +18,7 @@ func connect_signals():
 	if not(enemy.enemySpriteSheet.animation_finished.is_connected(animation_end)):
 		enemy.enemySpriteSheet.animation_finished.connect(animation_end)
 	
+	# Conecta o signal body enter do attack area
 	if not(enemy.attack_area.body_entered.is_connected(deal_player_damage)):
 		enemy.attack_area.body_entered.connect(deal_player_damage)
 
@@ -39,10 +40,11 @@ func animation_end():
 
 func deal_player_damage(body: Node):
 	if(body.is_in_group("Player")):
-		# Aplica o dano se for inimigo referente a arma do jogador
+		# Aplica o dano se for inimigo referente a arma que usa
 		body.actualEnemy = enemy
 		body.set_damage(enemy.enemyResource.axeValue)
 
 func play_sfx():
+	# Toca o sfx
 	enemy.audioPlayer.stream = enemy.enemyResource.attackSFX
 	enemy.audioPlayer.play()

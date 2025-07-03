@@ -17,18 +17,12 @@ func physics_update(delta: float):
 	# So ataca se estiver no chao
 	if(Input.is_action_just_pressed("attack_player") and player.is_on_floor()):
 		changed_state.emit(self, "Attack")
-	
-	if(Input.is_action_just_pressed("ui_end")):
-		changed_state.emit(self, "Dead")
 
 func move_player(_delta) -> void:
-	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and player.is_on_floor():
 		player.velocity.y = jumpVelocity
 		play_sfx()
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		player.velocity.x = direction * speed
@@ -42,5 +36,6 @@ func move_player(_delta) -> void:
 	player.move_and_slide()
 
 func play_sfx():
+	# Toca o sfx
 	player.audioPlayer.stream = player.playerResource.jumpSFX
 	player.audioPlayer.play()

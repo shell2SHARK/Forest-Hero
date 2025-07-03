@@ -8,6 +8,8 @@ func enter():
 	kill()
 
 func kill():
+	# Se nao foi morto por queda, chama a animacao normal
+	# Senao apenas destroi e diminui -1 da contagem de inimigos
 	if(!enemy.deadByFall):
 		enemy.enemySpriteSheet.play("Dead")
 		enemy.collisionBox.set_deferred("disabled", true)
@@ -27,5 +29,6 @@ func kill():
 		enemy.queue_free()
 
 func play_sfx():
+	# Toca o sfx
 	enemy.audioPlayer.stream = enemy.enemyResource.deadSFX
 	enemy.audioPlayer.play()

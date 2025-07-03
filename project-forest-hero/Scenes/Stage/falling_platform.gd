@@ -45,3 +45,8 @@ func shake_and_fall(delta):
 func _on_area_detect_player_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("Player")):
 		start_shake()
+
+func _on_area_detect_player_area_entered(area: Area2D) -> void:
+	if(area.is_in_group("Killzone")):
+		queue_free()
+		

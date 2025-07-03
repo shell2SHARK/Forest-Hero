@@ -14,7 +14,8 @@ func physics_update(delta: float):
 	pursuit()
 
 func set_pursuit():
-	enemy.alertIcon.visible = false # Desativa o alerta do inimigo
+	# Seta os valores iniciais de perseguicao
+	enemy.alertIcon.visible = false
 	enemy.lifeBar.visible = true
 	speedPursuit = enemy.enemyResource.speedPursuit
 	distanceToStop = enemy.enemyResource.distanceToAttack
@@ -31,6 +32,5 @@ func pursuit():
 	
 	# Se chegar ate uma distancia perto do jogador,ataca
 	var distanceToPlayer = enemy.global_position.distance_to(enemy.player.global_position)
-	#print("seguindo = " , distanceToPlayer)
 	if(distanceToPlayer <= distanceToStop):
 		changed_state.emit(self, "Attack")

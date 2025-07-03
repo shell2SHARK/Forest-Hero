@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cqv3hol0c6u4c"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win and Lose/win_ui.gd" id="1_jyirh"]
+[ext_resource type="Texture2D" uid="uid://1n2tla8pmrsv" path="res://Sprites/UI/Win and Lose/Btn Menu.png" id="3_6ihc7"]
 [ext_resource type="Texture2D" uid="uid://db231kv2ufq14" path="res://Sprites/UI/Win and Lose/You win logo.png" id="3_8hens"]
-[ext_resource type="Texture2D" uid="uid://7x6j0ednivhd" path="res://Sprites/UI/Menu/Btn Start.png" id="3_ft3yi"]
 [ext_resource type="AudioStream" uid="uid://66xrodj1j2mk" path="res://SFXs/Musics/Fanfare Music.wav" id="4_dw6v0"]
 [ext_resource type="AudioStream" uid="uid://tc5kos8wisgf" path="res://SFXs/UI/Select Button.wav" id="4_qgj4h"]
 
@@ -76,7 +76,7 @@ offset_bottom = 224.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2myxl")
-icon = ExtResource("3_ft3yi")
+icon = ExtResource("3_6ihc7")
 flat = true
 expand_icon = true
 

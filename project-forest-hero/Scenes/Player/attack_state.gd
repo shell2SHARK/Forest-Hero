@@ -10,12 +10,13 @@ func enter():
 
 func update(delta: float):
 	player.gravity(delta)
+	
 	# Se a animacao estiver no frame certo, ativa o colisor
 	if(player.playerSpriteSheet.frame >= 3):
 		player.attack_area.get_child(0).disabled = false
 
 func connect_signals():
-	# Se ja houver um signal conectado de animation finished, nao chama mais apos trocar de state
+	# Se ja houver um signal conectado de animation finished e body enter, nao chama mais apos trocar de state
 	if not(player.playerSpriteSheet.animation_finished.is_connected(animation_end)):
 		player.playerSpriteSheet.animation_finished.connect(animation_end)
 	
@@ -27,8 +28,8 @@ func attack():
 	player.playerSpriteSheet.play("Attack")
 
 func deal_enemy_damage(body: Node):
+	# Aplica o dano se for inimigo referente a arma atual
 	if(body.is_in_group("Enemy")):
-		# Aplica o dano se for inimigo referente a arma do jogador
 		body.set_damage(player.playerResource.swordValue)
 
 func animation_end():
@@ -38,5 +39,6 @@ func animation_end():
 		player.attack_area.get_child(0).disabled = true
 
 func play_sfx():
+	# Toca o sfx
 	player.audioPlayer.stream = player.playerResource.attackSFX
 	player.audioPlayer.play()

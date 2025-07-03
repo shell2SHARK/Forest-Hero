@@ -10,11 +10,14 @@ func enter():
 	connect_signals()
 	get_initial_dir()
 	speedPatrol = enemy.enemyResource.speedPatrol
+	
+	# Ativa a area de visao e desativa a barra de vida
 	enemy.lookArea.get_child(0).visible = true
 	enemy.lifeBar.visible = false
 
 func physics_update(delta: float):
 	move(delta)
+	
 	# Usa essa bool para dar tempo do inimigo voltar e o raycast detectar o chao novamente
 	if(!waitToCheck):
 		check_to_flip()
@@ -25,6 +28,7 @@ func connect_signals():
 		enemy.lookArea.body_entered.connect(saw_player)
 
 func move(delta):
+	# Movimenta o inimigo
 	enemy.gravity(delta)
 	enemy.enemySpriteSheet.play("Walk")
 	enemy.velocity.x = speedPatrol * direction
@@ -36,6 +40,7 @@ func check_to_flip():
 	if(!enemy.raycastFloor.get_collider() is StaticBody2D or
 		enemy.raycastVision.get_collider() is StaticBody2D or
 		enemy.raycastVision.get_collider() and enemy.raycastVision.get_collider().is_in_group("Enemy")):
+		
 		# Se nao estiver mais tocando no chao, inverte o valor de direction para ir em outra direcao
 		direction *= -1
 		enemy.enemySpriteSheet.flip_h = direction < 0
@@ -46,6 +51,7 @@ func check_to_flip():
 		waitToCheck = false
 
 func saw_player(body: Node):
+	# Caso a zona de visao toque no jogador, faz o inimigo perceber
 	if(body.is_in_group("Player")):
 		changed_state.emit(self, "Idle_To_Pursuit")
 
