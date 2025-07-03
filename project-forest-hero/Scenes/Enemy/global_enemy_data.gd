@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+# Variaveis e nodes compartilhados
 @onready var enemySpriteSheet : AnimatedSprite2D = %AnimatedSprite2D
 @onready var raycastFloor : RayCast2D = %RayCast_Floor
 @onready var raycastVision: RayCast2D = %RayCast_Vision
