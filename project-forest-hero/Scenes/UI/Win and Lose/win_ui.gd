@@ -9,11 +9,13 @@ var target_alpha := 1.0
 var startGame := false
 
 func start_button_blink():
+	# Faz o botao piscar
 	var tween = create_tween().set_loops()
 	tween.tween_property(btnRestart, "modulate:a", 0.0, blink_interval)
 	tween.tween_property(btnRestart, "modulate:a", 1.0, blink_interval)
 
 func fade_in_background():
+	# Faz a tela branca esmaecer
 	var end_color = whitePanel.color
 	end_color.a = target_alpha
 	var tween = create_tween()
@@ -21,6 +23,7 @@ func fade_in_background():
 	tween.tween_callback(on_fade_complete)
 
 func on_fade_complete():
+	# Ao acabar o fade da tela branca, muda de cena
 	get_tree().change_scene_to_file("res://Scenes/UI/Menu/Menu.tscn")
 
 func _on_restart_btn_pressed() -> void:

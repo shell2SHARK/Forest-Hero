@@ -18,6 +18,7 @@ func physics_update(delta: float):
 	take_knockback(delta)
 
 func set_knockback():
+	# Seta os valores necessarios pra comecar o knockback
 	duration = player.playerResource.durationKnockback
 	force = player.playerResource.forceKnockback
 	knockbackDirection = (player.global_position - player.actualEnemy.global_position).normalized()
@@ -25,15 +26,17 @@ func set_knockback():
 	player.playerSpriteSheet.play("Knockback")
 
 func take_knockback(delta):
+	# Se a duracao e maior que zero, aplica forca contraria
 	if(duration > 0):
 		player.velocity.x = knockbackVelocity.x
 		knockbackVelocity.x = lerp(knockbackVelocity.x, 0.0, knockbackDamping * delta)
 		duration -= delta
 	else:
-		#player.collisionBox.set_deferred("disabled", false)
 		changed_state.emit(self, "Movement")
+		
 	player.move_and_slide()
 
 func play_sfx():
+	# Toca o sfx
 	player.audioPlayer.stream = player.playerResource.hurtSFX
 	player.audioPlayer.play()

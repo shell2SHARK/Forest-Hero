@@ -8,6 +8,7 @@ func _ready() -> void:
 	play_sfx()
 
 func _on_smoke_animation_finished() -> void:
+	# Sorteia se o inimigo spawna um item ou nao
 	randomize()
 	getItemPorcentage = randf_range(0,100)
 	
@@ -19,5 +20,6 @@ func _on_smoke_animation_finished() -> void:
 	queue_free()
 
 func play_sfx():
+	# Toca o sfx
 	audioPlayer.stream = enemyResource.explosionSFX
 	audioPlayer.play()

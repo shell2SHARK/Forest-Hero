@@ -12,6 +12,7 @@ func update(_delta: float):
 	idle_to_go(timeToWait)
 
 func wake_to_player():
+	# Seta os valores iniciais para comecar a perseguir
 	timeToWait = enemy.enemyResource.timeToWaitUntilPursuit
 	enemy.alertIcon.visible = true
 	enemy.lookArea.get_child(0).visible = false
@@ -24,5 +25,6 @@ func idle_to_go(value):
 	changed_state.emit(self, "Pursuit")
 
 func play_sfx():
+	# Toca o sfx
 	enemy.audioPlayer.stream = enemy.enemyResource.alertSFX
 	enemy.audioPlayer.play()

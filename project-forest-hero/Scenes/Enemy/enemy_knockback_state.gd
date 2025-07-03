@@ -17,6 +17,7 @@ func physics_update(delta: float):
 	take_knockback(delta)
 
 func set_knockback():
+	# Seta os valores necessarios pra comecar o knockback
 	duration = enemy.enemyResource.durationKnockback
 	force = enemy.enemyResource.forceKnockback
 	knockbackDirection = (enemy.global_position - enemy.player.global_position).normalized()
@@ -28,6 +29,7 @@ func set_knockback():
 	enemy.lookArea.get_child(0).visible = false
 
 func take_knockback(delta):
+	# Se a duracao e maior que zero, aplica forca contraria
 	if(duration > 0):
 		enemy.velocity.x = knockbackVelocity.x
 		knockbackVelocity.x = lerp(knockbackVelocity.x, 0.0, knockbackDamping * delta)
@@ -37,5 +39,6 @@ func take_knockback(delta):
 	enemy.move_and_slide()
 
 func play_sfx():
+	# Toca o sfx
 	enemy.audioPlayer.stream = enemy.enemyResource.hurtSFX
 	enemy.audioPlayer.play()

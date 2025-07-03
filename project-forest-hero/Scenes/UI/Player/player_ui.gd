@@ -10,9 +10,11 @@ var totalEnemies := 0
 var endGame := false
 
 func _ready() -> void:
+	# Seta o valor da barra de vida e o numero de inimigos
 	lifeBar.max_value = player.playerResource.life
 	totalEnemies = get_tree().get_nodes_in_group("Enemy").size()
 	
+	# Comeca a tocar a musica da fase
 	if(stageMusic):
 		musicPlayer.stream = stageMusic
 		musicPlayer.play()
@@ -20,14 +22,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if(!endGame):
 		set_infos()
-	
-	if(Input.is_action_just_pressed("ui_home")):
-		totalEnemies = 0
 
 func set_infos():
+	# Atualiza as infos na UI do jogador
 	lifeBar.value = player.life
 	enemyCount.text = str(totalEnemies)
 	
+	# Se nao houver mais inimigos, chama a tela de vencedor
 	if(totalEnemies <= 0):
 		stop_music()
 		var stateMachinePlayer = player.get_node("State_Machine")
@@ -39,4 +40,5 @@ func set_infos():
 		endGame = true
 
 func stop_music():
+	# Para a musica, chamado tambem na tela de perdedor
 	musicPlayer.stop()
