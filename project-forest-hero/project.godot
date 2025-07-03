@@ -13,7 +13,7 @@ config_version=5
 config/name="Project Forest Hero"
 run/main_scene="res://Scenes/UI/Menu/Menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Icon_Game.png"
 
 [display]
 
