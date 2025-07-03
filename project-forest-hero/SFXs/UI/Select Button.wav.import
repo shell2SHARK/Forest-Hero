@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://tc5kos8wisgf"
+path="res://.godot/imported/Select Button.wav-761f4cc0dcd7e2d86548b7161391e3ef.sample"
+
+[deps]
+
+source_file="res://SFXs/UI/Select Button.wav"
+dest_files=["res://.godot/imported/Select Button.wav-761f4cc0dcd7e2d86548b7161391e3ef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

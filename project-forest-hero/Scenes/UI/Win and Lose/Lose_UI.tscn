@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://2pi0xij8tsih"]
+
+[ext_resource type="Script" path="res://Scenes/UI/Win and Lose/lose_ui.gd" id="1_wkk1i"]
+[ext_resource type="Texture2D" uid="uid://dvvplfkytau1o" path="res://Sprites/UI/Win and Lose/You lose logo.png" id="2_un3xy"]
+[ext_resource type="Texture2D" uid="uid://dt3gsckpk28kp" path="res://Sprites/UI/Win and Lose/Btn Try Again.png" id="3_stjwf"]
+[ext_resource type="AudioStream" uid="uid://tc5kos8wisgf" path="res://SFXs/UI/Select Button.wav" id="4_nypa6"]
+[ext_resource type="AudioStream" uid="uid://csefpho0ng6vq" path="res://SFXs/Musics/Lose Music.wav" id="5_dpk2p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2myxl"]
+
+[node name="Lose_UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_wkk1i")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = -224.0
+offset_right = 300.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_un3xy")
+expand_mode = 1
+
+[node name="Description" type="Label" parent="UI/Logo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.5
+offset_top = 42.0
+offset_right = 28.5
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.72678, 1.72678)
+theme_override_colors/font_outline_color = Color(0.61793, 0.382709, 0.0213215, 1)
+theme_override_constants/outline_size = 2
+text = "But don't give up yet..."
+horizontal_alignment = 1
+
+[node name="Restart_BTN" type="Button" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = 91.0
+offset_right = 122.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2myxl")
+icon = ExtResource("3_stjwf")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="White_Blink" type="ColorRect" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="UI_SFX_Player" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_nypa6")
+
+[node name="Music_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_dpk2p")
+volume_db = -25.0
+autoplay = true
+
+[connection signal="pressed" from="UI/Restart_BTN" to="." method="_on_restart_btn_pressed"]

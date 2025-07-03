@@ -1,0 +1,70 @@
+[gd_scene load_steps=14 format=3 uid="uid://754oghd5ijln"]
+
+[ext_resource type="Texture2D" uid="uid://dgftteo6e6rum" path="res://Sprites/Smoke/Smoke_03_1.png" id="1_1id28"]
+[ext_resource type="Script" path="res://Scenes/Smoke/smoke.gd" id="1_2qg4j"]
+[ext_resource type="Texture2D" uid="uid://csl5vgmbvj7dd" path="res://Sprites/Smoke/Smoke_03_2.png" id="2_gcqam"]
+[ext_resource type="Texture2D" uid="uid://iqyc70me7sw" path="res://Sprites/Smoke/Smoke_03_3.png" id="3_k2i33"]
+[ext_resource type="Texture2D" uid="uid://cdjseouwsxb6q" path="res://Sprites/Smoke/Smoke_03_4.png" id="4_gqfxy"]
+[ext_resource type="Texture2D" uid="uid://lyr50fb8o5pr" path="res://Sprites/Smoke/Smoke_03_5.png" id="5_bw2jy"]
+[ext_resource type="Texture2D" uid="uid://dvwclj26pbl40" path="res://Sprites/Smoke/Smoke_03_6.png" id="6_eqnmd"]
+[ext_resource type="Texture2D" uid="uid://k50uoaf4xg6j" path="res://Sprites/Smoke/Smoke_03_7.png" id="7_m2ly1"]
+[ext_resource type="Texture2D" uid="uid://f07632jlbjvg" path="res://Sprites/Smoke/Smoke_03_8.png" id="8_s34wf"]
+[ext_resource type="Texture2D" uid="uid://cb183jlb2g7qf" path="res://Sprites/Smoke/Smoke_03_9.png" id="9_xiuyu"]
+[ext_resource type="Texture2D" uid="uid://dyw605lvkk7ek" path="res://Sprites/Smoke/Smoke_03_10.png" id="10_w47d2"]
+[ext_resource type="Texture2D" uid="uid://p61jq5vqg6vk" path="res://Sprites/Smoke/Smoke_03_11.png" id="11_xdgyx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x2hbn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1id28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gcqam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k2i33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gqfxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bw2jy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eqnmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_m2ly1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s34wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xiuyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_w47d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xdgyx")
+}],
+"loop": false,
+"name": &"Smoke",
+"speed": 15.0
+}]
+
+[node name="Smoke" type="Node2D"]
+script = ExtResource("1_2qg4j")
+
+[node name="Smoke" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -34)
+sprite_frames = SubResource("SpriteFrames_x2hbn")
+animation = &"Smoke"
+autoplay = "Smoke"
+frame = 4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+
+[connection signal="animation_finished" from="Smoke" to="." method="_on_smoke_animation_finished"]

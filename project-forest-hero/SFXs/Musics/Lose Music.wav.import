@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://csefpho0ng6vq"
+path="res://.godot/imported/Lose Music.wav-83acf0844f88b59fe4f9e93d988f552b.sample"
+
+[deps]
+
+source_file="res://SFXs/Musics/Lose Music.wav"
+dest_files=["res://.godot/imported/Lose Music.wav-83acf0844f88b59fe4f9e93d988f552b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

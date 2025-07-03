@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bysvyomnwrtgv"]
+
+[ext_resource type="Texture2D" uid="uid://de05ke2m6dm4l" path="res://Sprites/Enemy/Exclamacao.png" id="1_vv2oh"]
+
+[node name="Alert" type="Sprite2D"]
+scale = Vector2(0.0507812, 0.0507812)
+texture = ExtResource("1_vv2oh")
