@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/UI/Win and Lose/lose_ui.gd" id="1_wkk1i"]
 [ext_resource type="Texture2D" uid="uid://dvvplfkytau1o" path="res://Sprites/UI/Win and Lose/You lose logo.png" id="2_un3xy"]
-[ext_resource type="Texture2D" uid="uid://7x6j0ednivhd" path="res://Sprites/UI/Menu/Btn Start.png" id="3_iyxv3"]
+[ext_resource type="Texture2D" uid="uid://dt3gsckpk28kp" path="res://Sprites/UI/Win and Lose/Btn Try Again.png" id="3_stjwf"]
 [ext_resource type="AudioStream" uid="uid://tc5kos8wisgf" path="res://SFXs/UI/Select Button.wav" id="4_nypa6"]
 [ext_resource type="AudioStream" uid="uid://csefpho0ng6vq" path="res://SFXs/Musics/Lose Music.wav" id="5_dpk2p"]
 
@@ -78,8 +78,9 @@ offset_bottom = 224.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2myxl")
-icon = ExtResource("3_iyxv3")
+icon = ExtResource("3_stjwf")
 flat = true
+icon_alignment = 1
 expand_icon = true
 
 [node name="White_Blink" type="ColorRect" parent="UI"]
