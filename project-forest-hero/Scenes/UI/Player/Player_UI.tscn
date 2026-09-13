@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://clbsxema63k84"]
+[gd_scene format=3 uid="uid://clbsxema63k84"]
 
 [ext_resource type="Texture2D" uid="uid://bcx2fy038kger" path="res://Sprites/UI/Player/Heart pixel.png" id="1_6wwk2"]
-[ext_resource type="Script" path="res://Scenes/UI/Player/player_ui.gd" id="1_xyo0c"]
+[ext_resource type="Script" uid="uid://l24yhlpsn8mn" path="res://Scenes/UI/Player/player_ui.gd" id="1_xyo0c"]
 [ext_resource type="Texture2D" uid="uid://c7vw686bun17o" path="res://Sprites/Enemy/Orc-Walk.png" id="3_5r6xl"]
+[ext_resource type="Texture2D" uid="uid://dlypr07jlli21" path="res://Icon_Game.png" id="4_2mxth"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlelb"]
 bg_color = Color(0.281187, 0.281187, 0.281187, 1)
@@ -17,11 +18,11 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Player_UI" type="CanvasLayer" groups=["PlayerUI"]]
+[node name="Player_UI" type="CanvasLayer" unique_id=1965171647 groups=["PlayerUI"]]
 process_mode = 3
 script = ExtResource("1_xyo0c")
 
-[node name="Life_Bar" type="ProgressBar" parent="."]
+[node name="Life_Bar" type="ProgressBar" parent="." unique_id=2128694971]
 unique_name_in_owner = true
 modulate = Color(0.731045, 0.38138, 0.498178, 1)
 offset_left = 55.0
@@ -35,18 +36,18 @@ step = 1.0
 value = 2.0
 show_percentage = false
 
-[node name="Heart" type="Sprite2D" parent="Life_Bar"]
+[node name="Heart" type="Sprite2D" parent="Life_Bar" unique_id=624818371]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-1, 8)
 scale = Vector2(0.173228, 0.173228)
 texture = ExtResource("1_6wwk2")
 
-[node name="Heart2" type="Sprite2D" parent="Life_Bar"]
+[node name="Heart2" type="Sprite2D" parent="Life_Bar" unique_id=678013161]
 position = Vector2(-1, 7)
 scale = Vector2(0.133858, 0.133858)
 texture = ExtResource("1_6wwk2")
 
-[node name="Enemy_Count" type="Label" parent="."]
+[node name="Enemy_Count" type="Label" parent="." unique_id=1388411212]
 unique_name_in_owner = true
 anchors_preset = 1
 anchor_left = 1.0
@@ -58,7 +59,7 @@ offset_bottom = 76.0
 grow_horizontal = 0
 text = "0"
 
-[node name="BG_Orc_Count" type="ColorRect" parent="Enemy_Count"]
+[node name="BG_Orc_Count" type="ColorRect" parent="Enemy_Count" unique_id=1096335744]
 z_index = -1
 layout_mode = 0
 offset_left = -50.0
@@ -67,7 +68,7 @@ offset_right = 54.0
 offset_bottom = 25.0
 color = Color(0.19, 0.19, 0.19, 0.654902)
 
-[node name="Orc" type="TextureRect" parent="Enemy_Count"]
+[node name="Orc" type="TextureRect" parent="Enemy_Count" unique_id=1160944122]
 layout_mode = 0
 offset_left = -176.0
 offset_top = -118.0
@@ -79,6 +80,14 @@ expand_mode = 1
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="Music_Player" type="AudioStreamPlayer" parent="."]
+[node name="Music_Player" type="AudioStreamPlayer" parent="." unique_id=503790073]
 unique_name_in_owner = true
 volume_db = -25.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=347030282]
+offset_left = 517.0
+offset_top = 262.0
+offset_right = 650.0
+offset_bottom = 558.0
+texture = ExtResource("4_2mxth")
+expand_mode = 1
